@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/home/grzegorz/Android/Sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="/home/grzegorz/odkCollectTester/collectTester/collectTester_app/build/intermediates/transforms/dex/debug/folders/1000/10/constraint-layout-solver-1.0.2_370736b2e07f9539bc09d78b8a2cdd35eb950f08/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/grzegorz/.android/build-cache/3cd310b9fdee1e2cbf7296feb5f8aa3b5f52a0d4/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="8df0e365e40beb151bc42dee20817721a6cab7b0">
+        <dex dex="/home/grzegorz/odkCollectTester/collectTester/collectTester_app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_d21199bc2f2436dcfdb22b668568b63fd9fac09e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/grzegorz/.android/build-cache/0b6c62d6c950ed0820945557ed255ad130002dc8/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="952944218ecedea1554a513dec0c14d570642843">
+        <dex dex="/home/grzegorz/odkCollectTester/collectTester/collectTester_app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_8c5fb0ca362e60bb0e6053b681d974f41ed72156/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/grzegorz/.android/build-cache/8a42833e506764d6948dc18343dce17884a0251a/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="fcd01fd11233459f546c437ec927e9b61bf7caf1">
+        <dex dex="/home/grzegorz/odkCollectTester/collectTester/collectTester_app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_081c1c95aba8bcb19107b5890f0c59b4113516e0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/grzegorz/.android/build-cache/31a405f1f8eaa90680b53cbefad6dd0c083a0f4a/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="47471eb19df288158b00b8d9cfa41bce7373f5cc">
+        <dex dex="/home/grzegorz/odkCollectTester/collectTester/collectTester_app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0d161096e12c1c2d21f31fe5dd24fe04d279cd7f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/grzegorz/odkCollectTester/collectTester/collectTester_app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="/home/grzegorz/odkCollectTester/collectTester/collectTester_app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_962226bb8dd1ac204daf0bde2983b944623a2bea/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/grzegorz/.android/build-cache/db7e514d4a51ce1d04cb7c0f2897634a34dc11e2/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="c4f45092eee6cdf1a5dbd597b2b6819be652ce2e">
+        <dex dex="/home/grzegorz/odkCollectTester/collectTester/collectTester_app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_8a3c47ecad7be781a086050d63fcf648284d0a55/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/grzegorz/.android/build-cache/6126d1ddf49ec63bc40edaaed94d3a5b8fa9f6d3/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="18d31838aa4fcc768a8a0516e22cc13b94655d89">
+        <dex dex="/home/grzegorz/odkCollectTester/collectTester/collectTester_app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ec00e66cd000d487de4e377b21a2de0f5aac19ab/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/grzegorz/.android/build-cache/a1ab55217d61ec65de9f00ccb485a7e79c4de8c2/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="/home/grzegorz/odkCollectTester/collectTester/collectTester_app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ce7406f1635ac1d65bb4342fe82af7d6ef4debd8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/grzegorz/.android/build-cache/b70a92c74dd7034a5c48c88f11edae33ccc5b034/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="2e92aa0163544a804a0b34f169ca61801770839a">
+        <dex dex="/home/grzegorz/odkCollectTester/collectTester/collectTester_app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_7732fa30618fe02879dc868bd068152337e5e296/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/grzegorz/.android/build-cache/44e907130c56cdcd94887df0d883addc2d11bb59/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/grzegorz/odkCollectTester/collectTester/collectTester_app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_4929bb1c9451463fa6cc1c01db2dcdee8876d40d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/grzegorz/odkCollectTester/collectTester/collectTester_app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="d9f43a39be2f8bd51cdc2d9eb8da06b0a1d00aef">
+        <dex dex="/home/grzegorz/odkCollectTester/collectTester/collectTester_app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_def18258e0c97f6ef2829653e2846fcb73c7c164/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/grzegorz/.android/build-cache/42403fb5c5e671f57097e0dc68b91b09e1c39e39/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="9935891f23923f39d002087085d9696568a9f657">
+        <dex dex="/home/grzegorz/odkCollectTester/collectTester/collectTester_app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_f1883a505ab6dd9cbd560533d82a6d0a677c1572/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/grzegorz/odkCollectTester/collectTester/collectTester_app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="/home/grzegorz/odkCollectTester/collectTester/collectTester_app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_962226bb8dd1ac204daf0bde2983b944623a2bea/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/grzegorz/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/26.0.0-alpha1/support-annotations-26.0.0-alpha1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="023ee503b631f69511e335a061ea008f8da60f40">
+        <dex dex="/home/grzegorz/odkCollectTester/collectTester/collectTester_app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-26.0.0-alpha1_7554be3f05007069d01480338a0d4303ff396baf/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/grzegorz/odkCollectTester/collectTester/collectTester_app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="d9f43a39be2f8bd51cdc2d9eb8da06b0a1d00aef">
+        <dex dex="/home/grzegorz/odkCollectTester/collectTester/collectTester_app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_def18258e0c97f6ef2829653e2846fcb73c7c164/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/grzegorz/.android/build-cache/bc928d66edc485d8b62ba1646f66621f5e258bcc/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="88246166d5afb106f532f6e6deae683c66b42c89">
+        <dex dex="/home/grzegorz/odkCollectTester/collectTester/collectTester_app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_28e80852a2332c961d5f3db9940041c6ad74e832/classes.dex" />
+    </item>
+
+</items>
