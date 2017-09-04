@@ -1,4 +1,4 @@
-# ODK Collect Intents Tester
+## ODK Collect Intents Tester
 
 This app is intended to be used for testing [ODK Collect](https://github.com/opendatakit/collect) app and presenting how to open activities of [ODK Collect](https://github.com/opendatakit/collect) directly from an external app.
 
@@ -9,4 +9,33 @@ Thanks to that you can build your own app that interact with [ODK Collect](https
 
 ![Alt Text](https://github.com/grzesiek2010/collectTester/blob/master/collectTester.gif)
 
+## Example
+
+If you want to start ODK Collect's activity you need to:
+1. Create a new intent using an appropriate action.
+2. Set the typ of created intent.
+3. Start an activity using the intent.
+
+The code should looks like below (in this case it's the Form Chooser list):
+
+```java
+    public void startFormChooserList(View view) {
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setType(FORMS_CHOOSER_INTENT_TYPE);
+        startActivityIfAvailable(i);
+    }
+```
+
+where 
+```java
+FORMS_CHOOSER_INTENT_TYPE = "vnd.android.cursor.dir/vnd.odk.form";
+```
+
+You can find all the other examples in [MainActivity](https://github.com/grzesiek2010/collectTester/blob/master/collectTester_app/src/main/java/org/odk/collectTester/activities/MainActivity.java) or [ListActivity](https://github.com/grzesiek2010/collectTester/blob/master/collectTester_app/src/main/java/org/odk/collectTester/activities/ListActivity.java)
+
+## Note
 On the other side you can also open other apps from [ODK Collect](https://github.com/opendatakit/collect), for example in order to read a value - see [ODK Counter](https://github.com/opendatakit/counter) 
+
+## License
+Apache License, Version 2.0
+[http://www.apache.org/licenses/LICENSE-2.0.html](http://www.apache.org/licenses/LICENSE-2.0.html)
