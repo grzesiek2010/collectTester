@@ -31,10 +31,10 @@ where
 FORMS_CHOOSER_INTENT_TYPE = "vnd.android.cursor.dir/vnd.odk.form";
 ```
 
-You can find all the other examples in [MainActivity](https://github.com/grzesiek2010/collectTester/blob/master/collectTester_app/src/main/java/org/odk/collectTester/activities/MainActivity.java) or [ListActivity](https://github.com/grzesiek2010/collectTester/blob/master/collectTester_app/src/main/java/org/odk/collectTester/activities/ListActivity.java)
+You can find all the other examples in [MainActivity](https://github.com/grzesiek2010/collectTester/blob/master/collectTester_app/src/main/java/org/odk/collectTester/activities/MainActivity.java) or [ListActivity](https://github.com/grzesiek2010/collectTester/blob/master/collectTester_app/src/main/java/org/odk/collectTester/activities/ListActivity.java).
 
 ## Note
-On the other side you can also open other apps from [ODK Collect](https://github.com/opendatakit/collect), for example in order to read a value - see [ODK Counter](https://github.com/opendatakit/counter) 
+On the other side you can also open other apps from [ODK Collect](https://github.com/opendatakit/collect), for example in order to read a value - see the [ODK Counter](https://github.com/opendatakit/counter).
 
 ## License
 Apache License, Version 2.0
