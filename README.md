@@ -1,22 +1,22 @@
 ## ODK Collect Intents Tester
 
-This app is intended to be used for testing [ODK Collect](https://github.com/opendatakit/collect) app and presenting how to open activities of [ODK Collect](https://github.com/opendatakit/collect) directly from an external app.
+This app is for testing the [ODK Collect](https://github.com/opendatakit/collect) app and presenting how to open activities of [ODK Collect](https://github.com/opendatakit/collect) directly from an external app.
 
-[ODK Collect](https://github.com/opendatakit/collect) offers us to open a bunch of it's activities from another app. 
-You can open a specific form or one of existed lists (list of empty forms, saved forms, finalized forms, sent forms).
+[ODK Collect](https://github.com/opendatakit/collect) allows us to open several of its activities from another app. 
+You can open a specific form or lists of empty forms, saved forms, finalized forms or sent forms.
 
 Thanks to that you can build your own app that interact with [ODK Collect](https://github.com/opendatakit/collect) through intents.
 
 ![Alt Text](https://github.com/grzesiek2010/collectTester/blob/master/collectTester.gif)
 
-## Example
+## Calling ODK Collect from your app
 
 If you want to start ODK Collect's activity you need to:
 1. Create a new intent using an appropriate action.
-2. Set the typ of created intent.
+2. Set the type of created intent.
 3. Start an activity using the intent.
 
-The code should looks like below (in this case it's the Form Chooser list):
+The code should look like below (in this case it's the Form Chooser list):
 
 ```java
     public void startFormChooserList(View view) {
