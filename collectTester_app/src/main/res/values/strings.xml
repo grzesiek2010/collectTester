@@ -28,4 +28,5 @@ limitations under the License.
     <string name="start_form_list_info">This button allows you to show a list of forms existed in ODK Collect app and open one</string>
     <string name="start_instances_list_info">This button allows you to show a list of saved forms existed in ODK Collect app and open one</string>
     <string name="no_data_available">No data available</string>
+    <string name="collect_app_not_installed">Collect app is not installed!</string>
 </resources>
