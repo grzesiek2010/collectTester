@@ -25,6 +25,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.odk.collectTester.utilities.ListElement;
 import org.odk.collectTester.R;
@@ -47,6 +48,14 @@ public class ListActivity extends AbstractActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+
+        if (!isCollectAppInstalled()) {
+            finish();
+            Toast
+                    .makeText(this, getString(R.string.collect_app_not_installed), Toast.LENGTH_LONG)
+                    .show();
+            return;
+        }
 
         mode = getIntent().getExtras().getString(LIST_MODE_KEY);
 
