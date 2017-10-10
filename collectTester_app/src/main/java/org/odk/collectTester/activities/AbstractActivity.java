@@ -23,10 +23,16 @@ import android.widget.Toast;
 
 import org.odk.collectTester.R;
 
+import static org.odk.collectTester.utilities.Constants.COLLECT_PACKAGE_NAME;
+
 public class AbstractActivity extends AppCompatActivity {
 
     public void startActivityIfAvailable(Intent i) {
-        if (isActivityAvailable(i)) {
+        if (!isCollectAppInstalled()) {
+            Toast
+                    .makeText(this, getString(R.string.collect_app_not_installed), Toast.LENGTH_LONG)
+                    .show();
+        } else if (isActivityAvailable(i)) {
             startActivity(i);
         } else {
             Toast
@@ -39,5 +45,14 @@ public class AbstractActivity extends AppCompatActivity {
         return getPackageManager()
                 .queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY)
                 .size() > 0;
+    }
+
+    public boolean isCollectAppInstalled() {
+        try {
+            getPackageManager().getPackageInfo(COLLECT_PACKAGE_NAME, 0);
+            return true;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
     }
 }
