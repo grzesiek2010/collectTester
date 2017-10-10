@@ -39,6 +39,8 @@ import static org.odk.collectTester.utilities.Constants.FORMS;
 import static org.odk.collectTester.utilities.Constants.FORMS_URI;
 import static org.odk.collectTester.utilities.Constants.INSTANCES_URI;
 import static org.odk.collectTester.utilities.Constants.LIST_MODE_KEY;
+import static org.odk.collectTester.utilities.Constants.STATUS;
+import static org.odk.collectTester.utilities.Constants.STATUS_SUBMITTED;
 
 public class ListActivity extends AbstractActivity {
     private String mode;
@@ -93,7 +95,9 @@ public class ListActivity extends AbstractActivity {
                     int id = cursor.getInt(cursor.getColumnIndex(BaseColumns._ID));
                     String text1 = cursor.getString(cursor.getColumnIndex(DISPLAY_NAME));
                     String text2 = cursor.getString(cursor.getColumnIndex(DISPLAY_SUBTEXT));
-                    listElements.add(new ListElement(id, text1, text2));
+                    if (mode.equals(FORMS) || !STATUS_SUBMITTED.equals(cursor.getString(cursor.getColumnIndex(STATUS)))) {
+                        listElements.add(new ListElement(id, text1, text2));
+                    }
                 }
             } finally {
                 cursor.close();
