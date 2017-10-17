@@ -22,6 +22,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 
 import android.support.v4.app.DialogFragment;
+import android.webkit.WebView;
 
 import org.odk.collectTester.R;
 
@@ -30,10 +31,12 @@ public class SimpleDialog extends DialogFragment {
     public static final String INFO_DIALOG_TAG = "infoDialogTag";
 
     private static final String MESSAGE = "message";
+    private static final String CODE_FRAGMENT = "codeFragment";
 
-    public static SimpleDialog newInstance(String message) {
+    public static SimpleDialog newInstance(String message, String codeFragment) {
         Bundle bundle = new Bundle();
         bundle.putString(MESSAGE, message);
+        bundle.putString(CODE_FRAGMENT, codeFragment);
 
         SimpleDialog dialogFragment = new SimpleDialog();
         dialogFragment.setArguments(bundle);
@@ -44,13 +47,29 @@ public class SimpleDialog extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         setCancelable(false);
 
-        return new AlertDialog.Builder(getActivity())
-                .setMessage(getArguments().getString(MESSAGE))
+        AlertDialog alertDialog =  new AlertDialog.Builder(getActivity())
                 .setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
+                        dismiss();
                     }
                 })
                 .create();
+
+        String codeFragment = getArguments().getString(CODE_FRAGMENT);
+
+        if (codeFragment != null) {
+            WebView webView = new WebView(getContext());
+            webView.loadUrl(getArguments().getString(CODE_FRAGMENT));
+            webView.getSettings().setLoadWithOverviewMode(true);
+            webView.getSettings().setUseWideViewPort(true);
+            webView.getSettings().setMinimumFontSize(60);
+
+            alertDialog.setView(webView);
+        } else {
+            alertDialog.setMessage(getArguments().getString(MESSAGE));
+        }
+
+        return alertDialog;
     }
 }

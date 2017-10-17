@@ -23,14 +23,18 @@ import android.view.View;
 import org.odk.collectTester.R;
 import org.odk.collectTester.fragments.SimpleDialog;
 
+import static org.odk.collectTester.utilities.Constants.EDIT_SAVED_FORM_CODE;
+import static org.odk.collectTester.utilities.Constants.FILL_BLANK_FORM_CODE;
 import static org.odk.collectTester.utilities.Constants.FORMS;
 import static org.odk.collectTester.utilities.Constants.FORMS_CHOOSER_INTENT_TYPE;
 import static org.odk.collectTester.utilities.Constants.FORM_MODE;
 import static org.odk.collectTester.utilities.Constants.INSTANCES;
 import static org.odk.collectTester.utilities.Constants.INSTANCES_CHOOSER_INTENT_TYPE;
 import static org.odk.collectTester.utilities.Constants.LIST_MODE_KEY;
+import static org.odk.collectTester.utilities.Constants.SEND_FINALIZED_FORM_CODE;
 import static org.odk.collectTester.utilities.Constants.SENT_FORMS_INTENT_TYPE;
 import static org.odk.collectTester.utilities.Constants.VIEW_SENT;
+import static org.odk.collectTester.utilities.Constants.VIEW_SENT_FORM_CODE;
 
 public class MainActivity extends AbstractActivity {
 
@@ -77,31 +81,31 @@ public class MainActivity extends AbstractActivity {
     }
 
     public void startFormChooserListInfo(View view) {
-        showDialogInfo(getString(R.string.start_form_chooser_list_info));
+        showDialogInfo(null, FILL_BLANK_FORM_CODE);
     }
 
     public void startInstanceChooserListInfo(View view) {
-        showDialogInfo(getString(R.string.start_instance_chooser_list_info));
+        showDialogInfo(null, EDIT_SAVED_FORM_CODE);
     }
 
     public void startInstanceUploaderListInfo(View view) {
-        showDialogInfo(getString(R.string.start_instance_uploader_list_info));
+        showDialogInfo(null, SEND_FINALIZED_FORM_CODE);
     }
 
     public void startSentFormListInfo(View view) {
-        showDialogInfo(getString(R.string.start_sent_form_list_info));
+        showDialogInfo(null, VIEW_SENT_FORM_CODE);
     }
 
     public void startFormListInfo(View view) {
-        showDialogInfo(getString(R.string.start_form_list_info));
+        showDialogInfo(getString(R.string.start_form_list_info), null);
     }
 
     public void startInstancesListInfo(View view) {
-        showDialogInfo(getString(R.string.start_instances_list_info));
+        showDialogInfo(getString(R.string.start_instances_list_info), null);
     }
 
-    private void showDialogInfo(String message) {
-        SimpleDialog simpleDialog = SimpleDialog.newInstance(message);
+    private void showDialogInfo(String message, String codeFragment) {
+        SimpleDialog simpleDialog = SimpleDialog.newInstance(message, codeFragment);
         simpleDialog.show(getSupportFragmentManager(), SimpleDialog.INFO_DIALOG_TAG);
     }
 }
