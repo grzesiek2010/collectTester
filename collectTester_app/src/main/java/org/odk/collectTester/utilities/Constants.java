@@ -34,6 +34,9 @@ public class Constants {
 
     public static final String DISPLAY_NAME = "displayName";
     public static final String DISPLAY_SUBTEXT = "displaySubtext";
+  
+    public static final String STATUS = "status";
+    public static final String STATUS_SUBMITTED = "submitted";
 
     public static final String COLLECT_PACKAGE_NAME = "org.odk.collect.android";
 }
