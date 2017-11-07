@@ -1,1 +1,1 @@
-include ':collectTester_app'
+include ':app'
