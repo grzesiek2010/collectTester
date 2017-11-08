@@ -39,4 +39,9 @@ public class Constants {
     public static final String STATUS_SUBMITTED = "submitted";
 
     public static final String COLLECT_PACKAGE_NAME = "org.odk.collect.android";
+
+    public static final String FILL_BLANK_FORM_CODE = "file:///android_asset/fill_blank_form_code.html";
+    public static final String EDIT_SAVED_FORM_CODE = "file:///android_asset/edit_saved_form_code.html";
+    public static final String SEND_FINALIZED_FORM_CODE = "file:///android_asset/send_finalize_form_code.html";
+    public static final String VIEW_SENT_FORM_CODE = "file:///android_asset/view_sent_form_code.html";
 }
