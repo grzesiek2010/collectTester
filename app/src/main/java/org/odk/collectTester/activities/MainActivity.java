@@ -108,6 +108,10 @@ public class MainActivity extends AbstractActivity {
         showDialogInfo(getString(R.string.start_instances_list_info), null);
     }
 
+    public void downloadForm(View view) {
+        startActivity(new Intent(this, FormDownloadActivity.class));
+    }
+
     private void showDialogInfo(String message, String codeFragment) {
         SimpleDialog simpleDialog = SimpleDialog.newInstance(message, codeFragment);
         simpleDialog.show(getSupportFragmentManager(), SimpleDialog.INFO_DIALOG_TAG);
