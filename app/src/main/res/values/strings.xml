@@ -36,4 +36,6 @@ limitations under the License.
     <!-- End of strings related to Settings -->
 
     <string name="submit_instance">Submit Instance</string>
+    <string name="download_form">Download Form</string>
+    <string name="form_id_underscore_caps">FORM_ID</string>
 </resources>
