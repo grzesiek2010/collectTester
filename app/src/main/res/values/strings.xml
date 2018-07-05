@@ -25,4 +25,6 @@ limitations under the License.
     <string name="start_instances_list_info">Get a list of instances from Collect. Specific instances can be launched using their ID.</string>
     <string name="no_data_available">No data available</string>
     <string name="collect_app_not_installed">The Collect app is not installed!</string>
+    <string name="download_form">Download Form</string>
+    <string name="form_id_underscore_caps">FORM_ID</string>
 </resources>
