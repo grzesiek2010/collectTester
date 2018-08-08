@@ -18,6 +18,8 @@ package org.odk.collectTester.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import org.odk.collectTester.R;
@@ -30,9 +32,11 @@ import static org.odk.collectTester.utilities.Constants.FORMS_CHOOSER_INTENT_TYP
 import static org.odk.collectTester.utilities.Constants.FORM_MODE;
 import static org.odk.collectTester.utilities.Constants.INSTANCES;
 import static org.odk.collectTester.utilities.Constants.INSTANCES_CHOOSER_INTENT_TYPE;
+import static org.odk.collectTester.utilities.Constants.INSTANCE_SUBMISSION;
 import static org.odk.collectTester.utilities.Constants.LIST_MODE_KEY;
 import static org.odk.collectTester.utilities.Constants.SEND_FINALIZED_FORM_CODE;
 import static org.odk.collectTester.utilities.Constants.SENT_FORMS_INTENT_TYPE;
+import static org.odk.collectTester.utilities.Constants.VIEW_INSTANCE_SUBMISSION_CODE;
 import static org.odk.collectTester.utilities.Constants.VIEW_SENT;
 import static org.odk.collectTester.utilities.Constants.VIEW_SENT_FORM_CODE;
 
@@ -107,5 +111,34 @@ public class MainActivity extends AbstractActivity {
     private void showDialogInfo(String message, String codeFragment) {
         SimpleDialog simpleDialog = SimpleDialog.newInstance(message, codeFragment);
         simpleDialog.show(getSupportFragmentManager(), SimpleDialog.INFO_DIALOG_TAG);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_activity, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch(item.getItemId()) {
+            case R.id.settings:
+                startActivity(new Intent(this, SettingsActivity.class));
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void startInstancesSubmissionInfo(View view) {
+        showDialogInfo(null, VIEW_INSTANCE_SUBMISSION_CODE);
+    }
+
+    public void submitInstance(View view) {
+        Intent intent = new Intent(this, ListActivity.class);
+        intent.putExtra(LIST_MODE_KEY, INSTANCE_SUBMISSION);
+
+        startActivity(intent);
     }
 }

@@ -1,0 +1,24 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+        android:inputType="textUri"
+        android:key="url"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="URL" />
+
+    <EditTextPreference
+        android:inputType="text"
+        android:key="username"
+        android:singleLine="true"
+        android:title="@string/username" />
+
+    <EditTextPreference
+        android:inputType="textPassword"
+        android:key="password"
+        android:singleLine="true"
+        android:password="true"
+        android:title="@string/password" />
+
+</PreferenceScreen>
