@@ -113,6 +113,17 @@ public class MainActivity extends AbstractActivity {
         simpleDialog.show(getSupportFragmentManager(), SimpleDialog.INFO_DIALOG_TAG);
     }
 
+    public void startInstancesSubmissionInfo(View view) {
+        showDialogInfo(null, VIEW_INSTANCE_SUBMISSION_CODE);
+    }
+
+    public void submitInstance(View view) {
+        Intent intent = new Intent(this, ListActivity.class);
+        intent.putExtra(LIST_MODE_KEY, INSTANCE_SUBMISSION);
+
+        startActivity(intent);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_activity, menu);
@@ -129,16 +140,5 @@ public class MainActivity extends AbstractActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void startInstancesSubmissionInfo(View view) {
-        showDialogInfo(null, VIEW_INSTANCE_SUBMISSION_CODE);
-    }
-
-    public void submitInstance(View view) {
-        Intent intent = new Intent(this, ListActivity.class);
-        intent.putExtra(LIST_MODE_KEY, INSTANCE_SUBMISSION);
-
-        startActivity(intent);
     }
 }
