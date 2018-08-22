@@ -25,6 +25,7 @@ import android.view.View;
 import org.odk.collectTester.R;
 import org.odk.collectTester.fragments.SimpleDialog;
 
+import static org.odk.collectTester.utilities.Constants.DOWNLOAD_FORM_CODE;
 import static org.odk.collectTester.utilities.Constants.EDIT_SAVED_FORM_CODE;
 import static org.odk.collectTester.utilities.Constants.FILL_BLANK_FORM_CODE;
 import static org.odk.collectTester.utilities.Constants.FORMS;
@@ -106,6 +107,10 @@ public class MainActivity extends AbstractActivity {
 
     public void startInstancesListInfo(View view) {
         showDialogInfo(getString(R.string.start_instances_list_info), null);
+    }
+
+    public void startDownloadFormInfo(View view) {
+        showDialogInfo(null, DOWNLOAD_FORM_CODE);
     }
 
     public void downloadForm(View view) {

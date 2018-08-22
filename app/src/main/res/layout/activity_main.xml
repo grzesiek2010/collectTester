@@ -176,6 +176,7 @@ limitations under the License.
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:src="@android:drawable/ic_dialog_info"
+<<<<<<< HEAD
                 android:onClick="startInstancesSubmissionInfo" />
 
             <Button
@@ -200,7 +201,7 @@ limitations under the License.
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:src="@android:drawable/ic_dialog_info"
-                android:onClick="startInstancesListInfo" />
+                android:onClick="startDownloadFormInfo" />
 
             <Button
                 android:layout_width="match_parent"
