@@ -44,7 +44,7 @@ public class Constants {
     public static final String EDIT_SAVED_FORM_CODE = "file:///android_asset/edit_saved_form_code.html";
     public static final String SEND_FINALIZED_FORM_CODE = "file:///android_asset/send_finalize_form_code.html";
     public static final String VIEW_SENT_FORM_CODE = "file:///android_asset/view_sent_form_code.html";
-    public static final String DOWNLOAD_FORM_CODE = "file://android_asset/download_form_code.html";
+    public static final String DOWNLOAD_FORM_CODE = "file:///android_asset/download_form_code.html";
 
     public static final String FORM_DOWNLOAD_BROADCAST_ACTION = "org.odk.collect.FORM_DOWNLOAD.PROGRESS";
 
