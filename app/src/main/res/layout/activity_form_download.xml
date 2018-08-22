@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/form_id_underscore_caps"
+        android:hint="@string/form_ids_underscore_caps"
         android:inputType="text"/>
 
     <View
@@ -30,8 +30,14 @@
         android:layout_width="match_parent"
         android:layout_height="10dp"/>
 
+    <Switch
+        android:id="@+id/switch_background_download"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="Background Download"/>
+
     <Button
-        android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="downloadForm"

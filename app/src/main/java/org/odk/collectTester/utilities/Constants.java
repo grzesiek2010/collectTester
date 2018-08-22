@@ -52,6 +52,7 @@ public class Constants {
         public static final String SUCCESS_KEY = "SUCCESSFUL";
         public static final String ERROR_REASON = "ERROR_MSG";
         public static final String FORM_ID = "FORM_ID";
+        public static final String FORM_IDS = "FORM_IDS";
         public static final String PROGRESS_STAGE = "PROGRESS_STAGE";
         public static final String TRANSACTION_ID = "TRANSACTION_ID";
     }
