@@ -34,7 +34,7 @@ intent.putExtra("PASSWORD", "");
 if (downloadInBackground) {
     context.sendBroadcast(intent);
 } else {
-    context.startActivity(intent);
+    context.startActivityForResult(intent);
 }
 </pre>
 </body>

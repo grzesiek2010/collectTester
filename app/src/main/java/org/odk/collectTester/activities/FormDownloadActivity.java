@@ -33,6 +33,10 @@ public class FormDownloadActivity extends AppCompatActivity {
     public static final int PROGRESS_REQUEST_BEING_PROCESSED = 2;
     public static final int PROGRESS_REQUEST_SATISFIED = 3;
 
+    private static final String DOWNLOAD_TEXT_KEY = "download_text";
+    private static final String DOWNLOAD_QUEUE_KEY = "download_queue";
+    private static final String DOWNLOAD_MODE_FLAG_KEY = "download_mode";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +44,12 @@ public class FormDownloadActivity extends AppCompatActivity {
 
         formIdEdtv = (EditText) findViewById(R.id.form_id_edt);
         statusTv = (TextView) findViewById(R.id.status_tv);
+
+        if (savedInstanceState != null) {
+            statusTv.setText(savedInstanceState.getString(DOWNLOAD_TEXT_KEY));
+            downloadInBackground = savedInstanceState.getBoolean(DOWNLOAD_MODE_FLAG_KEY);
+            downloadQueue = (HashMap<String, FormDownloadDetails>) savedInstanceState.getSerializable(DOWNLOAD_QUEUE_KEY);
+        }
 
         broadcastReceiver = new BroadcastReceiver() {
             @Override
@@ -87,6 +97,10 @@ public class FormDownloadActivity extends AppCompatActivity {
                 }
             }
         };
+
+        if (downloadQueue.size() > 0) {
+            registerReceiver(broadcastReceiver, new IntentFilter(Constants.FORM_DOWNLOAD_BROADCAST_ACTION));
+        }
     }
 
     private void updateStatus(String text) {
@@ -142,5 +156,21 @@ public class FormDownloadActivity extends AppCompatActivity {
     public static class FormDownloadDetails {
         public FormDownloadStatus formDownloadStatus;
         public String formId;
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        /*
+         Save the following:
+            - text on the download status
+            - download queue(Keeps track of all state)
+            - downloadInBackground flag
+          */
+
+        outState.putString(DOWNLOAD_TEXT_KEY, statusTv.getText().toString());
+        outState.putSerializable(DOWNLOAD_QUEUE_KEY, downloadQueue);
+        outState.putBoolean(DOWNLOAD_MODE_FLAG_KEY, downloadInBackground);
     }
 }
