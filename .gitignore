@@ -56,3 +56,6 @@ google-services.json
 # Freeline
 freeline.py
 freeline/
+
+# Ignore gradle-wrapper.properties
+gradle/wrapper/gradle-wrapper.properties
