@@ -37,5 +37,17 @@ limitations under the License.
 
     <string name="submit_instance">Submit Instance</string>
     <string name="download_form">Download Form</string>
-    <string name="form_id_underscore_caps">FORM_ID</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <!-- End of strings related to Settings -->
+
+    <string name="submit_instance">Submit Instance</string>
+    <string name="form_ids_underscore_caps">FORM_ID, FORM_ID</string>
+    <string name="download_mode_change_during_bg_downloads_is_restricted">You cannot change the download mode while there are ongoing downloads in the background</string>
 </resources>
