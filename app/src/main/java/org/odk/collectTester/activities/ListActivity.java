@@ -126,8 +126,14 @@ public class ListActivity extends AbstractActivity {
                     intent.setClassName(Constants.ODK_COLLECT_APP_PACKAGE_NAME, Constants.ODK_COLLECT_FORM_INSTANCE_UPLOADER);
                     intent.putExtra(Constants.BundleKeys.INSTANCES, new long[]{item.getId()});
                     intent.putExtra(Constants.BundleKeys.URL, url);
-                    intent.putExtra(Constants.BundleKeys.USERNAME, username);
-                    intent.putExtra(Constants.BundleKeys.PASSWORD, password);
+
+                    if (username != null) {
+                        intent.putExtra(Constants.BundleKeys.USERNAME, username);
+                    }
+
+                    if (password != null) {
+                        intent.putExtra(Constants.BundleKeys.PASSWORD, password);
+                    }
 
                     startActivity(intent);
                 } else {
