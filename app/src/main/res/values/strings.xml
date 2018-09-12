@@ -45,9 +45,12 @@ limitations under the License.
 
     <string name="password">Password</string>
     <string name="username">Username</string>
+    <string name="pref_ringtone_silent">Silent</string>
     <!-- End of strings related to Settings -->
 
     <string name="submit_instance">Submit Instance</string>
     <string name="form_ids_underscore_caps">FORM_ID, FORM_ID</string>
     <string name="download_mode_change_during_bg_downloads_is_restricted">You cannot change the download mode while there are ongoing downloads in the background</string>
+
+
 </resources>

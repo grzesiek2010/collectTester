@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * Copyright 2017 Ona
  *
@@ -36,6 +37,29 @@ import org.odk.collectTester.R;
 
 import java.util.List;
 
+=======
+package org.odk.collectTester.activities;
+import android.annotation.TargetApi;
+import android.content.Context;
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
+import android.preference.ListPreference;
+import android.preference.Preference;
+import android.preference.PreferenceActivity;
+import android.support.v7.app.ActionBar;
+import android.preference.PreferenceFragment;
+import android.preference.PreferenceManager;
+import android.preference.RingtonePreference;
+import android.text.TextUtils;
+import android.view.MenuItem;
+import org.odk.collectTester.R;
+import java.util.List;
+>>>>>>> 9bb4f45... Add preferences activity for setting the username & password
 /**
  * A {@link PreferenceActivity} that presents a set of application settings. On
  * handset devices, settings are presented as a single list. On tablets,
@@ -48,7 +72,10 @@ import java.util.List;
  * API Guide</a> for more information on developing a Settings UI.
  */
 public class SettingsActivity extends AppCompatPreferenceActivity {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9bb4f45... Add preferences activity for setting the username & password
     /**
      * A preference value change listener that updates the preference's summary
      * to reflect its new value.
@@ -57,18 +84,25 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         @Override
         public boolean onPreferenceChange(Preference preference, Object value) {
             String stringValue = value.toString();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9bb4f45... Add preferences activity for setting the username & password
             if (preference instanceof ListPreference) {
                 // For list preferences, look up the correct display value in
                 // the preference's 'entries' list.
                 ListPreference listPreference = (ListPreference) preference;
                 int index = listPreference.findIndexOfValue(stringValue);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9bb4f45... Add preferences activity for setting the username & password
                 // Set the summary to reflect the new value.
                 preference.setSummary(
                         index >= 0
                                 ? listPreference.getEntries()[index]
                                 : null);
+<<<<<<< HEAD
 
             } else {
                 if (preference instanceof EditTextPreference && !TextUtils.isEmpty(stringValue)) {
@@ -82,6 +116,28 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                         stringValue = "******";
                     }
                 }
+=======
+            } else if (preference instanceof RingtonePreference) {
+                // For ringtone preferences, look up the correct display value
+                // using RingtoneManager.
+                if (TextUtils.isEmpty(stringValue)) {
+                    // Empty values correspond to 'silent' (no ringtone).
+                    preference.setSummary(R.string.pref_ringtone_silent);
+                } else {
+                    Ringtone ringtone = RingtoneManager.getRingtone(
+                            preference.getContext(), Uri.parse(stringValue));
+                    if (ringtone == null) {
+                        // Clear the summary if there was a lookup error.
+                        preference.setSummary(null);
+                    } else {
+                        // Set the summary to reflect the new ringtone display
+                        // name.
+                        String name = ringtone.getTitle(preference.getContext());
+                        preference.setSummary(name);
+                    }
+                }
+            } else {
+>>>>>>> 9bb4f45... Add preferences activity for setting the username & password
                 // For all other preferences, set the summary to the value's
                 // simple string representation.
                 preference.setSummary(stringValue);
@@ -89,7 +145,10 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             return true;
         }
     };
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9bb4f45... Add preferences activity for setting the username & password
     /**
      * Helper method to determine if the device has an extra-large screen. For
      * example, 10" tablets are extra-large.
@@ -98,7 +157,10 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         return (context.getResources().getConfiguration().screenLayout
                 & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_XLARGE;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9bb4f45... Add preferences activity for setting the username & password
     /**
      * Binds a preference's summary to its value. More specifically, when the
      * preference's value is changed, its summary (line of text below the
@@ -111,7 +173,10 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
     private static void bindPreferenceSummaryToValue(Preference preference) {
         // Set the listener to watch for value changes.
         preference.setOnPreferenceChangeListener(sBindPreferenceSummaryToValueListener);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9bb4f45... Add preferences activity for setting the username & password
         // Trigger the listener immediately with the preference's
         // current value.
         sBindPreferenceSummaryToValueListener.onPreferenceChange(preference,
@@ -119,13 +184,19 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                         .getDefaultSharedPreferences(preference.getContext())
                         .getString(preference.getKey(), ""));
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9bb4f45... Add preferences activity for setting the username & password
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setupActionBar();
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9bb4f45... Add preferences activity for setting the username & password
     /**
      * Set up the {@link android.app.ActionBar}, if the API is available.
      */
@@ -136,7 +207,10 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9bb4f45... Add preferences activity for setting the username & password
     /**
      * {@inheritDoc}
      */
@@ -144,7 +218,10 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
     public boolean onIsMultiPane() {
         return isXLargeTablet(this);
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9bb4f45... Add preferences activity for setting the username & password
     /**
      * {@inheritDoc}
      */
@@ -153,7 +230,10 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
     public void onBuildHeaders(List<Header> target) {
         loadHeadersFromResource(R.xml.pref_headers, target);
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9bb4f45... Add preferences activity for setting the username & password
     /**
      * This method stops fragment injection in malicious applications.
      * Make sure to deny any unknown fragments here.
@@ -162,6 +242,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         return PreferenceFragment.class.getName().equals(fragmentName)
                 || GeneralPreferenceFragment.class.getName().equals(fragmentName);
     }
+<<<<<<< HEAD
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -173,18 +254,27 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         return super.onOptionsItemSelected(item);
     }
 
+=======
+>>>>>>> 9bb4f45... Add preferences activity for setting the username & password
     /**
      * This fragment shows general preferences only. It is used when the
      * activity is showing a two-pane settings UI.
      */
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public static class GeneralPreferenceFragment extends PreferenceFragment {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9bb4f45... Add preferences activity for setting the username & password
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.pref_general);
             setHasOptionsMenu(true);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9bb4f45... Add preferences activity for setting the username & password
             // Bind the summaries of EditText/List/Dialog/Ringtone preferences
             // to their values. When their values change, their summaries are
             // updated to reflect the new value, per the Android Design
@@ -193,5 +283,30 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             bindPreferenceSummaryToValue(findPreference("username"));
             bindPreferenceSummaryToValue(findPreference("password"));
         }
+<<<<<<< HEAD
     }
 }
+=======
+
+        @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+            int id = item.getItemId();
+            if (id == android.R.id.home) {
+                getActivity().onBackPressed();
+                return true;
+            }
+            return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+}
+>>>>>>> 9bb4f45... Add preferences activity for setting the username & password
