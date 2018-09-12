@@ -34,7 +34,7 @@ public class FormDownloadActivity extends AppCompatActivity {
 
     private HashMap<String, FormDownloadDetails> downloadQueue = new HashMap<>();
 
-    private boolean downloadInBackground = true;
+    private boolean downloadInBackground = false;
 
     public static final int PROGRESS_REQUEST_RECEIVED = 1;
     public static final int PROGRESS_REQUEST_BEING_PROCESSED = 2;
