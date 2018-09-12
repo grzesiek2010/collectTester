@@ -40,11 +40,13 @@ import static org.odk.collectTester.utilities.Constants.DISPLAY_NAME;
 import static org.odk.collectTester.utilities.Constants.DISPLAY_SUBTEXT;
 import static org.odk.collectTester.utilities.Constants.FORMS;
 import static org.odk.collectTester.utilities.Constants.FORMS_URI;
+import static org.odk.collectTester.utilities.Constants.INSTANCES;
 import static org.odk.collectTester.utilities.Constants.INSTANCES_URI;
 import static org.odk.collectTester.utilities.Constants.INSTANCE_SUBMISSION;
 import static org.odk.collectTester.utilities.Constants.LIST_MODE_KEY;
 import static org.odk.collectTester.utilities.Constants.STATUS;
 import static org.odk.collectTester.utilities.Constants.STATUS_SUBMITTED;
+import static org.odk.collectTester.utilities.Constants.STATUS_COMPLETE;
 
 public class ListActivity extends AbstractActivity {
     private String mode;
@@ -87,7 +89,11 @@ public class ListActivity extends AbstractActivity {
             uri = Uri.parse(FORMS_URI);
         } else {
             uri = Uri.parse(INSTANCES_URI);
+            if (mode.equals(INSTANCE_SUBMISSION)) {
+                return getContentResolver().query(uri, null, STATUS + " = ?", new String[]{STATUS_COMPLETE}, null);
+            }
         }
+
         return getContentResolver().query(uri, null, null, null, null);
     }
 
