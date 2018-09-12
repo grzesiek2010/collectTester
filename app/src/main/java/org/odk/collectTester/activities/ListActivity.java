@@ -47,6 +47,7 @@ import static org.odk.collectTester.utilities.Constants.LIST_MODE_KEY;
 import static org.odk.collectTester.utilities.Constants.STATUS;
 import static org.odk.collectTester.utilities.Constants.STATUS_SUBMITTED;
 import static org.odk.collectTester.utilities.Constants.STATUS_COMPLETE;
+import static org.odk.collectTester.utilities.Constants.STATUS_SUBMISSION_FAILED;
 
 public class ListActivity extends AbstractActivity {
     private String mode;
@@ -90,7 +91,7 @@ public class ListActivity extends AbstractActivity {
         } else {
             uri = Uri.parse(INSTANCES_URI);
             if (mode.equals(INSTANCE_SUBMISSION)) {
-                return getContentResolver().query(uri, null, STATUS + " = ?", new String[]{STATUS_COMPLETE}, null);
+                return getContentResolver().query(uri, null, STATUS + " = ? OR " + STATUS + " = ?", new String[]{STATUS_COMPLETE, STATUS_SUBMISSION_FAILED}, null);
             }
         }
 
