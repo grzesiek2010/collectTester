@@ -22,8 +22,8 @@ limitations under the License.
 </head>
 <body>
 <pre>
-Intent intent = new Intent();
-intent.setClassName("org.odk.collect.android", "org.odk.collect.android.activities.InstanceUploaderActivity");
+Intent intent = new Intent("org.odk.collect.android.INSTANCE_UPLOAD");
+intent.setType("vnd.android.cursor.dir/vnd.odk.instance");
 intent.putExtra("instances", new long[]{item.getId()});
 intent.putExtra("URL", "https://opendatakit.appspot.com");
 intent.putExtra("USERNAME", "user");
