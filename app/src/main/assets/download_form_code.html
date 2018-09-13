@@ -34,6 +34,7 @@ intent.putExtra("PASSWORD", "");
 if (downloadInBackground) {
     context.sendBroadcast(intent);
 } else {
+    intent.setType("vnd.android.cursor.dir/vnd.odk.form");
     context.startActivityForResult(intent);
 }
 </pre>
