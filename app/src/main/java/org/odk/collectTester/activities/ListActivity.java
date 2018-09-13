@@ -41,9 +41,11 @@ import static org.odk.collectTester.utilities.Constants.DISPLAY_SUBTEXT;
 import static org.odk.collectTester.utilities.Constants.FORMS;
 import static org.odk.collectTester.utilities.Constants.FORMS_URI;
 import static org.odk.collectTester.utilities.Constants.INSTANCES;
+import static org.odk.collectTester.utilities.Constants.INSTANCES_CHOOSER_INTENT_TYPE;
 import static org.odk.collectTester.utilities.Constants.INSTANCES_URI;
 import static org.odk.collectTester.utilities.Constants.INSTANCE_SUBMISSION;
 import static org.odk.collectTester.utilities.Constants.LIST_MODE_KEY;
+import static org.odk.collectTester.utilities.Constants.ODK_COLLECT_SUBMIT_INSTANCE_ACTION;
 import static org.odk.collectTester.utilities.Constants.STATUS;
 import static org.odk.collectTester.utilities.Constants.STATUS_SUBMITTED;
 import static org.odk.collectTester.utilities.Constants.STATUS_COMPLETE;
@@ -129,8 +131,9 @@ public class ListActivity extends AbstractActivity {
                     Intent i = new Intent(Intent.ACTION_EDIT, Uri.parse(FORMS_URI + "/" + item.getId()));
                     startActivityIfAvailable(i);
                 } else if (mode.equals(INSTANCE_SUBMISSION)) {
-                    Intent intent = new Intent();
-                    intent.setClassName(Constants.ODK_COLLECT_APP_PACKAGE_NAME, Constants.ODK_COLLECT_FORM_INSTANCE_UPLOADER);
+                    Intent intent = new Intent(ODK_COLLECT_SUBMIT_INSTANCE_ACTION);
+                    intent.setType(INSTANCES_CHOOSER_INTENT_TYPE);
+
                     intent.putExtra(Constants.BundleKeys.INSTANCES, new long[]{item.getId()});
                     intent.putExtra(Constants.BundleKeys.URL, url);
 

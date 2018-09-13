@@ -62,6 +62,5 @@ public class Constants {
         public static final String URL = "URL";
     }
 
-    public static final String ODK_COLLECT_APP_PACKAGE_NAME = "org.odk.collect.android";
-    public static final String ODK_COLLECT_FORM_INSTANCE_UPLOADER = ODK_COLLECT_APP_PACKAGE_NAME + ".activities.InstanceUploaderActivity";
+    public static final String ODK_COLLECT_SUBMIT_INSTANCE_ACTION = "org.odk.collect.android.INSTANCE_UPLOAD";
 }
