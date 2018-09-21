@@ -21,6 +21,7 @@ public class Constants {
 
     public static final String FORMS = "forms";
     public static final String INSTANCES = "instances";
+    public static final String INSTANCE_SUBMISSION = "instance_submission";
 
     public static final String FORM_MODE = "formMode";
     public static final String VIEW_SENT = "viewSent";
@@ -37,6 +38,8 @@ public class Constants {
   
     public static final String STATUS = "status";
     public static final String STATUS_SUBMITTED = "submitted";
+    public static final String STATUS_COMPLETE = "complete";
+    public static final String STATUS_SUBMISSION_FAILED = "submissionFailed";
 
     public static final String COLLECT_PACKAGE_NAME = "org.odk.collect.android";
 
@@ -44,4 +47,20 @@ public class Constants {
     public static final String EDIT_SAVED_FORM_CODE = "file:///android_asset/edit_saved_form_code.html";
     public static final String SEND_FINALIZED_FORM_CODE = "file:///android_asset/send_finalize_form_code.html";
     public static final String VIEW_SENT_FORM_CODE = "file:///android_asset/view_sent_form_code.html";
+    public static final String VIEW_INSTANCE_SUBMISSION_CODE = "file:///android_asset/view_submit_instance_code.html";
+
+    public static final String FORM_DOWNLOAD_SERVICE_NAME = "org.odk.collect.android.services.FormDownloadService";
+    public static final String FORM_DOWNLOAD_BROADCAST_ACTION = "org.odk.collect.FORM_DOWNLOAD.COMPLETE";
+
+    public abstract static class BundleKeys {
+        public static final String SUCCESS_KEY = "SUCCESSFUL";
+        public static final String ERROR_REASON = "ERROR_MSG";
+        public static final String FORM_ID = "FORM_ID";
+        public static final String INSTANCES = "instances";
+        public static final String USERNAME = "USERNAME";
+        public static final String PASSWORD = "PASSWORD";
+        public static final String URL = "URL";
+    }
+
+    public static final String ODK_COLLECT_SUBMIT_INSTANCE_ACTION = "org.odk.collect.android.INSTANCE_UPLOAD";
 }
