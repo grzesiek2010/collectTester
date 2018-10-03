@@ -27,4 +27,26 @@ limitations under the License.
         android:visibility="gone"
         android:textSize="30sp"
         android:text="@string/no_data_available" />
+
+    <LinearLayout
+        android:id="@+id/ll_listActivity_instanceUploadLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_margin="20dp">
+
+        <EditText
+            android:id="@+id/et_listActivity_instanceIds"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter the instance ids of forms to upload separated by a comma eg. 1,5,7"/>
+
+        <Button
+            android:id="@+id/btn_listActivity_submitInstances"
+            android:layout_marginTop="9dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/submit"/>
+    </LinearLayout>
 </merge>
