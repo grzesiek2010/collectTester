@@ -24,7 +24,11 @@ import android.preference.PreferenceManager;
 import android.provider.BaseColumns;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,6 +62,8 @@ public class ListActivity extends AbstractActivity {
     private String username = null;
 
     private RecyclerView recyclerView;
+    private EditText instanceIds;
+    private Button submitInstancesBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +82,8 @@ public class ListActivity extends AbstractActivity {
         mode = bundle.getString(LIST_MODE_KEY);
 
         recyclerView = (RecyclerView) findViewById(R.id.list);
+        instanceIds = (EditText) findViewById(R.id.et_listActivity_instanceIds);
+        submitInstancesBtn = (Button) findViewById(R.id.btn_listActivity_submitInstances);
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -130,21 +138,7 @@ public class ListActivity extends AbstractActivity {
                     Intent i = new Intent(Intent.ACTION_EDIT, Uri.parse(FORMS_URI + "/" + item.getId()));
                     startActivityIfAvailable(i);
                 } else if (mode.equals(INSTANCE_SUBMISSION)) {
-                    Intent intent = new Intent(ODK_COLLECT_SUBMIT_INSTANCE_ACTION);
-                    intent.setType(INSTANCES_CHOOSER_INTENT_TYPE);
-
-                    intent.putExtra(Constants.BundleKeys.INSTANCES, new long[]{item.getId()});
-                    intent.putExtra(Constants.BundleKeys.URL, url);
-
-                    if (username != null) {
-                        intent.putExtra(Constants.BundleKeys.USERNAME, username);
-                    }
-
-                    if (password != null) {
-                        intent.putExtra(Constants.BundleKeys.PASSWORD, password);
-                    }
-
-                    startActivity(intent);
+                    submitInstances(new long[]{item.getId()});
                 } else {
                     Intent i = new Intent(Intent.ACTION_EDIT, Uri.parse(INSTANCES_URI + "/" + item.getId()));
                     startActivityIfAvailable(i);
@@ -153,9 +147,55 @@ public class ListActivity extends AbstractActivity {
         }));
 
         TextView emptyView = (TextView) findViewById(R.id.empty_view);
-        if (getCursor().getCount() == 0) {
+        if (getCursor() == null || getCursor().getCount() == 0) {
             recyclerView.setVisibility(View.GONE);
-            emptyView.setVisibility(View.VISIBLE);
+
+            if (mode.equals(INSTANCE_SUBMISSION)) {
+                findViewById(R.id.ll_listActivity_instanceUploadLayout)
+                        .setVisibility(View.VISIBLE);
+
+                submitInstancesBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String stringInstanceIds = instanceIds.getText().toString();
+                        stringInstanceIds = stringInstanceIds.trim();
+
+                        if (!TextUtils.isEmpty(stringInstanceIds)) {
+                            String[] ids = stringInstanceIds.split(",");
+                            ArrayList<Long> goodIds = new ArrayList<>();
+
+                            for (String id: ids) {
+                                id = id.trim();
+                                id = id.replace(",", "");
+                                if (!TextUtils.isEmpty(id) && TextUtils.isDigitsOnly(id)) {
+                                    goodIds.add(Long.parseLong(id));
+                                }
+                            }
+
+                            Long[] objectIdsArray = goodIds.toArray(new Long[goodIds.size()]);
+                            long[] primitiveIdsArray = new long[objectIdsArray.length];
+
+                            for (int i = 0; i < objectIdsArray.length; i++) {
+                                primitiveIdsArray[i] = objectIdsArray[i];
+                            }
+
+                            if (primitiveIdsArray.length > 0) {
+                                submitInstances(primitiveIdsArray);
+                            }
+                        }
+                    }
+                });
+
+            } else {
+                findViewById(R.id.ll_listActivity_instanceUploadLayout)
+                        .setVisibility(View.GONE);
+                emptyView.setVisibility(View.VISIBLE);
+            }
+        } else {
+            emptyView.setVisibility(View.GONE);
+            findViewById(R.id.ll_listActivity_instanceUploadLayout)
+                    .setVisibility(View.GONE);
+            recyclerView.setVisibility(View.VISIBLE);
         }
     }
 
@@ -163,5 +203,23 @@ public class ListActivity extends AbstractActivity {
         return PreferenceManager
                 .getDefaultSharedPreferences(this)
                 .getString(key, defValue);
+    }
+
+    private void submitInstances(long[] instanceIds) {
+        Intent intent = new Intent(ODK_COLLECT_SUBMIT_INSTANCE_ACTION);
+        intent.setType(INSTANCES_CHOOSER_INTENT_TYPE);
+
+        intent.putExtra(Constants.BundleKeys.INSTANCES, instanceIds);
+        intent.putExtra(Constants.BundleKeys.URL, url);
+
+        if (username != null) {
+            intent.putExtra(Constants.BundleKeys.USERNAME, username);
+        }
+
+        if (password != null) {
+            intent.putExtra(Constants.BundleKeys.PASSWORD, password);
+        }
+
+        startActivity(intent);
     }
 }
