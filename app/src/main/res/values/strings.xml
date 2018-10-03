@@ -43,4 +43,5 @@ limitations under the License.
 
     <string name="form_ids_underscore_caps">FORM_ID, FORM_ID</string>
     <string name="download_mode_change_during_bg_downloads_is_restricted">You cannot change the download mode while there are ongoing downloads in the background</string>
+    <string name="submit">SUBMIT</string>
 </resources>
