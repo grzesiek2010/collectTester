@@ -36,4 +36,6 @@ limitations under the License.
     <!-- End of strings related to Settings -->
 
     <string name="submit_instance">Submit Instance</string>
+    <string name="open_blank_form">Open Blank Form</string>
+    <string name="form_does_not_exist">A form with given jrFormId does not exist</string>
 </resources>

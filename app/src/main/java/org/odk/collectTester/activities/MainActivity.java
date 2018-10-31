@@ -124,6 +124,10 @@ public class MainActivity extends AbstractActivity {
         startActivity(intent);
     }
 
+    public void openBlankForm(View view) {
+        startActivity(new Intent(this, OpenBlankFormActivity.class));
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_activity, menu);

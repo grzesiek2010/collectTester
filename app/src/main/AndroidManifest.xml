@@ -33,5 +33,8 @@ limitations under the License.
         <activity
             android:name=".activities.SettingsActivity"
             android:label="@string/title_activity_settings"></activity>
+        <activity
+            android:name=".activities.OpenBlankFormActivity"
+            android:label="@string/open_blank_form"></activity>
     </application>
 </manifest>

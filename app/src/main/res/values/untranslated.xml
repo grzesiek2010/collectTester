@@ -15,4 +15,5 @@ limitations under the License.
 -->
 <resources>
     <string name="app_name" translatable="false">ODK Collect Intents Tester</string>
+    <string name="jr_form_id" translatable="false">jrFormId</string>
 </resources>
