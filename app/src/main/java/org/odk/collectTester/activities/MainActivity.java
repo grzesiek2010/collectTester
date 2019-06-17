@@ -139,12 +139,13 @@ public class MainActivity extends AbstractActivity {
 
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch(item.getItemId()) {
             case R.id.settings:
-                startActivity(new Intent(this, SettingsActivity.class));
+                startActivity(new Intent(this, AppCompatPreferenceActivity.class));
         }
 
         return super.onOptionsItemSelected(item);
