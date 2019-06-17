@@ -18,7 +18,6 @@ package org.odk.collectTester.activities;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
@@ -26,14 +25,12 @@ import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
-import android.support.v7.app.ActionBar;
+import androidx.appcompat.app.ActionBar;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
-import android.text.InputType;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.inputmethod.EditorInfo;
-import android.widget.EditText;
 
 import org.odk.collectTester.R;
 
