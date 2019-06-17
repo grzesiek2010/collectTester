@@ -50,8 +50,7 @@ def getVersionName = { ->
 }
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    compileSdkVersion 28
     defaultConfig {
         applicationId "org.odk.collectTester"
         minSdkVersion 15
