@@ -139,6 +139,7 @@ public class MainActivity extends AbstractActivity {
 
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
