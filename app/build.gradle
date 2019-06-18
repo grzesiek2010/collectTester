@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply from: '../config/quality.gradle'
 
 ant.condition(property: 'os', value: 'windows') {
     os(family: 'windows')

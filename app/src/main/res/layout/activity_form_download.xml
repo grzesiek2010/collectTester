@@ -11,7 +11,8 @@
         android:id="@+id/form_id_edt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/download_forms_text_box_hint" />
+        android:hint="@string/download_forms_text_box_hint"
+        android:inputType="textMultiLine" />
 
     <View
         android:layout_width="match_parent"
@@ -21,7 +22,7 @@
         android:id="@+id/status_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Form download status here..." />
+        android:text="@string/form_download_status" />
 
     <View
         android:layout_width="match_parent"
@@ -33,7 +34,7 @@
         android:layout_height="wrap_content"
         android:checked="false"
         android:visibility="gone"
-        android:text="Background Download"/>
+        android:text="@string/background_download"/>
 
     <Button
         android:layout_width="match_parent"

@@ -13,6 +13,10 @@ buildscript {
     }
 }
 
+plugins {
+    id 'com.github.spotbugs' version '1.6.4'
+}
+
 allprojects {
     repositories {
         jcenter()
@@ -22,4 +26,8 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+task checkCode(type: GradleBuild) {
+    tasks = ['pmd', 'checkstyle', 'lintDebug', 'spotbugs']
 }

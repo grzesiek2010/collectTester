@@ -17,6 +17,10 @@
 package org.odk.collectTester.utilities;
 
 public class Constants {
+    private Constants() {
+
+    }
+
     public static final String LIST_MODE_KEY = "listModeKey";
 
     public static final String FORMS = "forms";
@@ -51,7 +55,7 @@ public class Constants {
 
     public static final String FORM_DOWNLOAD_BROADCAST_ACTION = "org.odk.collect.FORM_DOWNLOAD.PROGRESS";
 
-    public abstract static class BundleKeys {
+    public static class BundleKeys {
         public static final String SUCCESS_KEY = "SUCCESSFUL";
         public static final String ERROR_REASON = "ERROR_MSG";
         public static final String FORM_ID = "FORM_ID";

@@ -47,11 +47,9 @@ public class InstancesSubmitActivity extends BaseActivity {
             }
 
             Long[] objectIdsArray = goodIds.toArray(new Long[0]);
-            long[] primitiveIdsArray = new long[objectIdsArray.length];
+            Long[] primitiveIdsArray = new Long[objectIdsArray.length];
 
-            for (int i = 0; i < objectIdsArray.length; i++) {
-                primitiveIdsArray[i] = objectIdsArray[i];
-            }
+            System.arraycopy(objectIdsArray, 0, primitiveIdsArray, 0, primitiveIdsArray.length);
 
             if (primitiveIdsArray.length > 0) {
                 submitInstances(primitiveIdsArray);
@@ -63,7 +61,7 @@ public class InstancesSubmitActivity extends BaseActivity {
         return ((TextView) findViewById(R.id.et_listActivity_instanceIds)).getText().toString().trim();
     }
 
-    private void submitInstances(long[] instanceIds) {
+    private void submitInstances(Long[] instanceIds) {
         Intent intent = new Intent(ODK_COLLECT_SUBMIT_INSTANCE_ACTION);
         intent.setType(INSTANCES_CHOOSER_INTENT_TYPE);
 

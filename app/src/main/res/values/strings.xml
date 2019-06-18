@@ -27,14 +27,14 @@ limitations under the License.
     <string name="collect_app_not_installed">The Collect app is not installed!</string>
     <string name="title_activity_settings">Settings</string>
     <string name="settings">Settings</string>
-    <string name="pref_header_general">General</string>
     <string name="password">Password</string>
     <string name="username">Username</string>
     <string name="submit_instance">Submit Instance</string>
     <string name="download_form">Download Form</string>
-    <string name="pref_ringtone_silent">Silent</string>
     <string name="download_mode_change_during_bg_downloads_is_restricted">You cannot change the download mode while there are ongoing downloads in the background</string>
     <string name="submit">SUBMIT</string>
     <string name="submit_forms_text_box_hint">Enter the instance ids of forms to upload separated by a comma eg. 1,5,7</string>
     <string name="download_forms_text_box_hint">Enter the form ids of forms to download separated by a comma eg. all-widgets, birds-form</string>
+    <string name="form_download_status">Form download status here…</string>
+    <string name="background_download">Background Download</string>
 </resources>

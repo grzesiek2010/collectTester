@@ -9,10 +9,10 @@
         android:id="@+id/et_listActivity_instanceIds"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/submit_forms_text_box_hint"/>
+        android:hint="@string/submit_forms_text_box_hint"
+        android:inputType="textMultiLine" />
 
     <Button
-        android:id="@+id/btn_listActivity_submitInstances"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

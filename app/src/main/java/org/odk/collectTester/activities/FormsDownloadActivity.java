@@ -36,7 +36,7 @@ public class FormsDownloadActivity extends BaseActivity {
 
     private HashMap<String, FormDownloadDetails> downloadQueue = new HashMap<>();
 
-    private boolean downloadInBackground = false;
+    private boolean downloadInBackground;
 
     public static final int PROGRESS_REQUEST_RECEIVED = 1;
     public static final int PROGRESS_REQUEST_BEING_PROCESSED = 2;
@@ -88,7 +88,6 @@ public class FormsDownloadActivity extends BaseActivity {
                     downloadQueue.put(transactionId, formDownloadDetails);
 
                     String errorReason = intent.getStringExtra(Constants.BundleKeys.ERROR_REASON);
-                    String resultFormId = intent.getStringExtra(Constants.BundleKeys.FORM_ID);
 
                     if (formDownloadStatus.equals(FormDownloadStatus.DOWNLOAD_REQUEST_RECEIVED)) {
                         status += "Request received for " + formDownloadDetails.formId + " AND IT " + getSuccessStatus(success);
@@ -112,14 +111,14 @@ public class FormsDownloadActivity extends BaseActivity {
             }
         };
 
-        if (downloadQueue.size() > 0 && downloadInBackground) {
+        if (!downloadQueue.isEmpty() && downloadInBackground) {
             registerReceiver(broadcastReceiver, new IntentFilter(Constants.FORM_DOWNLOAD_BROADCAST_ACTION));
         }
 
         backgroundDownloadSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (!isChecked && downloadInBackground && downloadQueue.size() > 0) {
+                if (!isChecked && downloadInBackground && !downloadQueue.isEmpty()) {
                     Toast.makeText(FormsDownloadActivity.this, R.string.download_mode_change_during_bg_downloads_is_restricted, Toast.LENGTH_LONG)
                             .show();
 
@@ -138,7 +137,7 @@ public class FormsDownloadActivity extends BaseActivity {
     private void unregisterReceiver(String transactionId) {
         downloadQueue.remove(transactionId);
 
-        if (downloadQueue.size() < 1) {
+        if (downloadQueue.isEmpty()) {
             unregisterReceiver(broadcastReceiver);
         }
     }
@@ -237,7 +236,7 @@ public class FormsDownloadActivity extends BaseActivity {
                                 .append(formId)
                                 .append(" SUCESSFULL: ")
                                 .append(getSuccessStatus(result))
-                                .append("\n");
+                                .append('\n');
                     }
                 }
 
