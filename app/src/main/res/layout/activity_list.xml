@@ -27,26 +27,4 @@ limitations under the License.
         android:visibility="gone"
         android:textSize="30sp"
         android:text="@string/no_data_available" />
-
-    <LinearLayout
-        android:id="@+id/ll_listActivity_instanceUploadLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:visibility="gone"
-        android:layout_margin="20dp">
-
-        <EditText
-            android:id="@+id/et_listActivity_instanceIds"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/submit_forms_text_box_hint"/>
-
-        <Button
-            android:id="@+id/btn_listActivity_submitInstances"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/submit"/>
-    </LinearLayout>
 </merge>
