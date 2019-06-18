@@ -18,7 +18,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.odk.collectTester.R;
 import org.odk.collectTester.utilities.Constants;
-import org.odk.collectTester.utilities.FormDownloadStatus;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -26,6 +25,10 @@ import java.util.HashMap;
 import java.util.UUID;
 
 public class FormsDownloadActivity extends AppCompatActivity {
+
+    private enum FormDownloadStatus {
+        DOWNLOAD_REQUESTED, DOWNLOAD_REQUEST_RECEIVED, DOWNLOAD_STARTED, DOWNLOAD_FAILED, DOWNLOAD_SUCCEEDED;
+    }
 
     private TextView statusTv;
     private EditText formIdEdtv;
