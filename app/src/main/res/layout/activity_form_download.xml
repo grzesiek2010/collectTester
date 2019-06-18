@@ -12,9 +12,7 @@
         android:id="@+id/form_id_edt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/form_ids_underscore_caps"
-        android:inputType="text"/>
+        android:hint="@string/download_forms_text_box_hint" />
 
     <View
         android:layout_width="match_parent"
