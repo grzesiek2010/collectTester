@@ -42,8 +42,9 @@ limitations under the License.
     <string name="pref_ringtone_silent">Silent</string>
     <!-- End of strings related to Settings -->
 
-    <string name="form_ids_underscore_caps">FORM_ID, FORM_ID</string>
     <string name="download_mode_change_during_bg_downloads_is_restricted">You cannot change the download mode while there are ongoing downloads in the background</string>
 
     <string name="submit">SUBMIT</string>
+    <string name="submit_forms_text_box_hint">Enter the instance ids of forms to upload separated by a comma eg. 1,5,7</string>
+    <string name="download_forms_text_box_hint">Enter the form ids of forms to download separated by a comma eg. 1,5,7</string>
 </resources>

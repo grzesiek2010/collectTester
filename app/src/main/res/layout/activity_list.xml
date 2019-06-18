@@ -40,7 +40,7 @@ limitations under the License.
             android:id="@+id/et_listActivity_instanceIds"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter the instance ids of forms to upload separated by a comma eg. 1,5,7"/>
+            android:hint="@string/submit_forms_text_box_hint"/>
 
         <Button
             android:id="@+id/btn_listActivity_submitInstances"
