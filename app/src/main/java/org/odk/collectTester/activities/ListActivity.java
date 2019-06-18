@@ -61,23 +61,20 @@ public class ListActivity extends AbstractActivity {
             return;
         }
 
-        Bundle bundle = getIntent().getExtras();
-        mode = bundle.getString(LIST_MODE_KEY);
+        setUpMode();
 
         recyclerView = findViewById(R.id.list);
-
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    private Cursor getCursor() {
-        Uri uri;
-        if (mode.equals(FORMS)) {
-            uri = Uri.parse(FORMS_URI);
-        } else {
-            uri = Uri.parse(INSTANCES_URI);
-        }
+    private void setUpMode() {
+        Bundle bundle = getIntent().getExtras();
+        mode = bundle != null ? bundle.getString(LIST_MODE_KEY) : FORMS;
+    }
 
+    private Cursor getCursor() {
+        Uri uri = mode.equals(FORMS) ? Uri.parse(FORMS_URI) : Uri.parse(INSTANCES_URI);
         return getContentResolver().query(uri, null, null, null, null);
     }
 
@@ -120,13 +117,11 @@ public class ListActivity extends AbstractActivity {
 
         if (getCursor() == null || getCursor().getCount() == 0) {
             findViewById(R.id.empty_view).setVisibility(View.VISIBLE);
-            findViewById(R.id.ll_listActivity_instanceUploadLayout)
-                    .setVisibility(View.GONE);
+            findViewById(R.id.ll_listActivity_instanceUploadLayout).setVisibility(View.GONE);
             recyclerView.setVisibility(View.GONE);
         } else {
             findViewById(R.id.empty_view).setVisibility(View.GONE);
-            findViewById(R.id.ll_listActivity_instanceUploadLayout)
-                    .setVisibility(View.GONE);
+            findViewById(R.id.ll_listActivity_instanceUploadLayout).setVisibility(View.GONE);
             recyclerView.setVisibility(View.VISIBLE);
         }
     }
