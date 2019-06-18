@@ -16,6 +16,7 @@
 
 package org.odk.collectTester.adapters;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,15 +39,13 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     private List<ListElement> listElements;
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView text1;
-        TextView text2;
-        View layout;
+        TextView title;
+        TextView subtext;
 
         ViewHolder(View v) {
             super(v);
-            layout = v;
-            text1 = v.findViewById(R.id.text1);
-            text2 = v.findViewById(R.id.text2);
+            title = v.findViewById(R.id.title);
+            subtext = v.findViewById(R.id.subtext);
         }
 
         void bind(final ListElement item, final OnItemClickListener listener) {
@@ -63,18 +62,19 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         this.listener = listener;
     }
 
+    @NonNull
     @Override
-    public ListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.row, parent, false);
 
         return new ViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.bind(listElements.get(position), listener);
-        holder.text1.setText(listElements.get(position).getText1());
-        holder.text2.setText(listElements.get(position).getText2());
+        holder.title.setText(listElements.get(position).getText1());
+        holder.subtext.setText(listElements.get(position).getText2());
     }
 
     @Override
