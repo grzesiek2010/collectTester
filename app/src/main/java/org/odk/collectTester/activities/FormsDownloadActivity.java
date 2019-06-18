@@ -57,6 +57,13 @@ public class FormsDownloadActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_download);
 
+        if (!isCollectAppInstalled()) {
+            finish();
+            Toast
+                    .makeText(this, getString(R.string.collect_app_not_installed), Toast.LENGTH_LONG)
+                    .show();
+        }
+
         statusTv = findViewById(R.id.status_tv);
         backgroundDownloadSwitch = findViewById(R.id.switch_background_download);
 
