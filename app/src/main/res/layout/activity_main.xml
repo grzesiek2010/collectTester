@@ -183,7 +183,7 @@ limitations under the License.
                 android:layout_height="wrap_content"
                 android:padding="20dp"
                 android:text="@string/submit_instance"
-                android:onClick="submitInstance" />
+                android:onClick="startInstancesSubmitActivity" />
 
         </LinearLayout>
 
@@ -200,14 +200,14 @@ limitations under the License.
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:src="@android:drawable/ic_dialog_info"
-                android:onClick="startDownloadFormInfo" />
+                android:onClick="startFormsDownloadInfo" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="20dp"
                 android:text="@string/download_form"
-                android:onClick="downloadForm" />
+                android:onClick="startFormsDownloadActivity" />
 
         </LinearLayout>
     </LinearLayout>
