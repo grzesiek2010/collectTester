@@ -17,7 +17,7 @@ public class ServerPrefsFragment extends PreferenceFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.pref_general);
+        addPreferencesFromResource(R.xml.server_prefs);
         setHasOptionsMenu(true);
 
         // Bind the summaries of EditText/List/Dialog/Ringtone preferences
