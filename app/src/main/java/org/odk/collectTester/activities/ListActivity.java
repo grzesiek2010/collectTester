@@ -20,19 +20,13 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.provider.BaseColumns;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import org.odk.collectTester.utilities.Constants;
 import org.odk.collectTester.utilities.ListElement;
 import org.odk.collectTester.R;
 import org.odk.collectTester.adapters.ListAdapter;
@@ -44,26 +38,15 @@ import static org.odk.collectTester.utilities.Constants.DISPLAY_NAME;
 import static org.odk.collectTester.utilities.Constants.DISPLAY_SUBTEXT;
 import static org.odk.collectTester.utilities.Constants.FORMS;
 import static org.odk.collectTester.utilities.Constants.FORMS_URI;
-import static org.odk.collectTester.utilities.Constants.INSTANCES_CHOOSER_INTENT_TYPE;
 import static org.odk.collectTester.utilities.Constants.INSTANCES_URI;
-import static org.odk.collectTester.utilities.Constants.INSTANCE_SUBMISSION;
 import static org.odk.collectTester.utilities.Constants.LIST_MODE_KEY;
-import static org.odk.collectTester.utilities.Constants.ODK_COLLECT_SUBMIT_INSTANCE_ACTION;
 import static org.odk.collectTester.utilities.Constants.STATUS;
 import static org.odk.collectTester.utilities.Constants.STATUS_SUBMITTED;
-import static org.odk.collectTester.utilities.Constants.STATUS_COMPLETE;
-import static org.odk.collectTester.utilities.Constants.STATUS_SUBMISSION_FAILED;
 
 public class ListActivity extends AbstractActivity {
     private String mode;
 
-    private String url = null;
-    private String password = null;
-    private String username = null;
-
     private RecyclerView recyclerView;
-    private EditText instanceIds;
-    private Button submitInstancesBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,16 +64,10 @@ public class ListActivity extends AbstractActivity {
         Bundle bundle = getIntent().getExtras();
         mode = bundle.getString(LIST_MODE_KEY);
 
-        recyclerView = (RecyclerView) findViewById(R.id.list);
-        instanceIds = (EditText) findViewById(R.id.et_listActivity_instanceIds);
-        submitInstancesBtn = (Button) findViewById(R.id.btn_listActivity_submitInstances);
+        recyclerView = findViewById(R.id.list);
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        url = getPrefValue("url", null);
-        username = getPrefValue("username", null);
-        password = getPrefValue("password", null);
     }
 
     private Cursor getCursor() {
@@ -99,9 +76,6 @@ public class ListActivity extends AbstractActivity {
             uri = Uri.parse(FORMS_URI);
         } else {
             uri = Uri.parse(INSTANCES_URI);
-            if (mode.equals(INSTANCE_SUBMISSION)) {
-                return getContentResolver().query(uri, null, STATUS + " = ? OR " + STATUS + " = ?", new String[]{STATUS_COMPLETE, STATUS_SUBMISSION_FAILED}, null);
-            }
         }
 
         return getContentResolver().query(uri, null, null, null, null);
@@ -137,8 +111,6 @@ public class ListActivity extends AbstractActivity {
                 if (mode.equals(FORMS)) {
                     Intent i = new Intent(Intent.ACTION_EDIT, Uri.parse(FORMS_URI + "/" + item.getId()));
                     startActivityIfAvailable(i);
-                } else if (mode.equals(INSTANCE_SUBMISSION)) {
-                    submitInstances(new long[]{item.getId()});
                 } else {
                     Intent i = new Intent(Intent.ACTION_EDIT, Uri.parse(INSTANCES_URI + "/" + item.getId()));
                     startActivityIfAvailable(i);
@@ -146,80 +118,16 @@ public class ListActivity extends AbstractActivity {
             }
         }));
 
-        TextView emptyView = (TextView) findViewById(R.id.empty_view);
         if (getCursor() == null || getCursor().getCount() == 0) {
+            findViewById(R.id.empty_view).setVisibility(View.VISIBLE);
+            findViewById(R.id.ll_listActivity_instanceUploadLayout)
+                    .setVisibility(View.GONE);
             recyclerView.setVisibility(View.GONE);
-
-            if (mode.equals(INSTANCE_SUBMISSION)) {
-                findViewById(R.id.ll_listActivity_instanceUploadLayout)
-                        .setVisibility(View.VISIBLE);
-
-                submitInstancesBtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        String stringInstanceIds = instanceIds.getText().toString();
-                        stringInstanceIds = stringInstanceIds.trim();
-
-                        if (!TextUtils.isEmpty(stringInstanceIds)) {
-                            String[] ids = stringInstanceIds.split(",");
-                            ArrayList<Long> goodIds = new ArrayList<>();
-
-                            for (String id: ids) {
-                                id = id.trim();
-                                id = id.replace(",", "");
-                                if (!TextUtils.isEmpty(id) && TextUtils.isDigitsOnly(id)) {
-                                    goodIds.add(Long.parseLong(id));
-                                }
-                            }
-
-                            Long[] objectIdsArray = goodIds.toArray(new Long[goodIds.size()]);
-                            long[] primitiveIdsArray = new long[objectIdsArray.length];
-
-                            for (int i = 0; i < objectIdsArray.length; i++) {
-                                primitiveIdsArray[i] = objectIdsArray[i];
-                            }
-
-                            if (primitiveIdsArray.length > 0) {
-                                submitInstances(primitiveIdsArray);
-                            }
-                        }
-                    }
-                });
-
-            } else {
-                findViewById(R.id.ll_listActivity_instanceUploadLayout)
-                        .setVisibility(View.GONE);
-                emptyView.setVisibility(View.VISIBLE);
-            }
         } else {
-            emptyView.setVisibility(View.GONE);
+            findViewById(R.id.empty_view).setVisibility(View.GONE);
             findViewById(R.id.ll_listActivity_instanceUploadLayout)
                     .setVisibility(View.GONE);
             recyclerView.setVisibility(View.VISIBLE);
         }
-    }
-
-    private String getPrefValue(String key, String defValue) {
-        return PreferenceManager
-                .getDefaultSharedPreferences(this)
-                .getString(key, defValue);
-    }
-
-    private void submitInstances(long[] instanceIds) {
-        Intent intent = new Intent(ODK_COLLECT_SUBMIT_INSTANCE_ACTION);
-        intent.setType(INSTANCES_CHOOSER_INTENT_TYPE);
-
-        intent.putExtra(Constants.BundleKeys.INSTANCES, instanceIds);
-        intent.putExtra(Constants.BundleKeys.URL, url);
-
-        if (username != null) {
-            intent.putExtra(Constants.BundleKeys.USERNAME, username);
-        }
-
-        if (password != null) {
-            intent.putExtra(Constants.BundleKeys.PASSWORD, password);
-        }
-
-        startActivity(intent);
     }
 }

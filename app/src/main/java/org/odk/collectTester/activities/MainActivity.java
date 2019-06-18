@@ -33,7 +33,6 @@ import static org.odk.collectTester.utilities.Constants.FORMS_CHOOSER_INTENT_TYP
 import static org.odk.collectTester.utilities.Constants.FORM_MODE;
 import static org.odk.collectTester.utilities.Constants.INSTANCES;
 import static org.odk.collectTester.utilities.Constants.INSTANCES_CHOOSER_INTENT_TYPE;
-import static org.odk.collectTester.utilities.Constants.INSTANCE_SUBMISSION;
 import static org.odk.collectTester.utilities.Constants.LIST_MODE_KEY;
 import static org.odk.collectTester.utilities.Constants.SEND_FINALIZED_FORM_CODE;
 import static org.odk.collectTester.utilities.Constants.SENT_FORMS_INTENT_TYPE;
@@ -127,10 +126,7 @@ public class MainActivity extends AbstractActivity {
     }
 
     public void submitInstance(View view) {
-        Intent intent = new Intent(this, ListActivity.class);
-        intent.putExtra(LIST_MODE_KEY, INSTANCE_SUBMISSION);
-
-        startActivity(intent);
+        startActivity(new Intent(this, InstanceSubmitActivity.class));
     }
 
     @Override
