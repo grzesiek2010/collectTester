@@ -11,6 +11,7 @@ import org.odk.collectTester.R;
 import org.odk.collectTester.utilities.Constants;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.odk.collectTester.utilities.Constants.INSTANCES_CHOOSER_INTENT_TYPE;
 import static org.odk.collectTester.utilities.Constants.ODK_COLLECT_SUBMIT_INSTANCE_ACTION;
@@ -35,7 +36,7 @@ public class InstancesSubmitActivity extends BaseActivity {
 
         if (!TextUtils.isEmpty(stringInstanceIds)) {
             String[] ids = stringInstanceIds.split(",");
-            ArrayList<Long> goodIds = new ArrayList<>();
+            List<Long> goodIds = new ArrayList<>();
 
             for (String id: ids) {
                 id = id
@@ -46,13 +47,12 @@ public class InstancesSubmitActivity extends BaseActivity {
                 }
             }
 
-            Long[] objectIdsArray = goodIds.toArray(new Long[0]);
-            Long[] primitiveIdsArray = new Long[objectIdsArray.length];
-
-            System.arraycopy(objectIdsArray, 0, primitiveIdsArray, 0, primitiveIdsArray.length);
-
-            if (primitiveIdsArray.length > 0) {
-                submitInstances(primitiveIdsArray);
+            long[] idsToSend = new long[goodIds.size()];
+            for (Long id : goodIds) {
+                idsToSend[goodIds.indexOf(id)] = id;
+            }
+            if (idsToSend.length > 0) {
+                submitInstances(idsToSend);
             }
         }
     }
@@ -61,7 +61,7 @@ public class InstancesSubmitActivity extends BaseActivity {
         return ((TextView) findViewById(R.id.et_listActivity_instanceIds)).getText().toString().trim();
     }
 
-    private void submitInstances(Long[] instanceIds) {
+    private void submitInstances(long[] instanceIds) {
         Intent intent = new Intent(ODK_COLLECT_SUBMIT_INSTANCE_ACTION);
         intent.setType(INSTANCES_CHOOSER_INTENT_TYPE);
 
