@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class FormDownloadActivity extends AppCompatActivity {
+public class FormsDownloadActivity extends AppCompatActivity {
 
     private TextView statusTv;
     private EditText formIdEdtv;
@@ -121,7 +121,7 @@ public class FormDownloadActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (!isChecked && downloadInBackground && downloadQueue.size() > 0) {
-                    Toast.makeText(FormDownloadActivity.this, R.string.download_mode_change_during_bg_downloads_is_restricted, Toast.LENGTH_LONG)
+                    Toast.makeText(FormsDownloadActivity.this, R.string.download_mode_change_during_bg_downloads_is_restricted, Toast.LENGTH_LONG)
                             .show();
 
                     backgroundDownloadSwitch.setChecked(true);

@@ -85,11 +85,11 @@ public class MainActivity extends AbstractActivity {
     }
 
     public void startInstancesSubmitActivity(View view) {
-        startActivity(new Intent(this, InstanceSubmitActivity.class));
+        startActivity(new Intent(this, InstancesSubmitActivity.class));
     }
 
     public void startFormsDownloadActivity(View view) {
-        startActivity(new Intent(this, FormDownloadActivity.class));
+        startActivity(new Intent(this, FormsDownloadActivity.class));
     }
 
     public void startFormChooserListInfo(View view) {

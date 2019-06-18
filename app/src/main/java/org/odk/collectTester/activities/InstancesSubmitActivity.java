@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import static org.odk.collectTester.utilities.Constants.INSTANCES_CHOOSER_INTENT_TYPE;
 import static org.odk.collectTester.utilities.Constants.ODK_COLLECT_SUBMIT_INSTANCE_ACTION;
 
-public class InstanceSubmitActivity extends AbstractActivity {
+public class InstancesSubmitActivity extends AbstractActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
