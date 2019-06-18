@@ -64,7 +64,6 @@ public class ServerPrefsFragment extends PreferenceFragment {
                 if (preference instanceof EditTextPreference && !TextUtils.isEmpty(stringValue)) {
                     int inputType = ((EditTextPreference) preference).getEditText().getInputType();
 
-
                     int variation = inputType & (EditorInfo.TYPE_MASK_CLASS | EditorInfo.TYPE_MASK_VARIATION);
                     if (variation == (EditorInfo.TYPE_CLASS_TEXT | EditorInfo.TYPE_TEXT_VARIATION_PASSWORD)
                             || variation == (EditorInfo.TYPE_CLASS_TEXT | EditorInfo.TYPE_TEXT_VARIATION_WEB_PASSWORD)

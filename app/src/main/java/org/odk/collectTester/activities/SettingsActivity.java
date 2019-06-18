@@ -23,11 +23,10 @@ import android.view.MenuItem;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatDelegate;
 
-import org.odk.collectTester.R;
 import org.odk.collectTester.fragments.ServerPrefsFragment;
 
 public class SettingsActivity extends PreferenceActivity {
-    private AppCompatDelegate mDelegate;
+    private AppCompatDelegate delegate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,10 +50,10 @@ public class SettingsActivity extends PreferenceActivity {
     }
 
     private AppCompatDelegate getDelegate() {
-        if (mDelegate == null) {
-            mDelegate = AppCompatDelegate.create(this, null);
+        if (delegate == null) {
+            delegate = AppCompatDelegate.create(this, null);
         }
-        return mDelegate;
+        return delegate;
     }
 
     @Override

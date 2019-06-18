@@ -36,7 +36,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
     private final OnItemClickListener listener;
 
-    private List<ListElement> listElements;
+    private final List<ListElement> listElements;
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         TextView title;

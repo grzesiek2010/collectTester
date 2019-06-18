@@ -17,10 +17,10 @@
 package org.odk.collectTester.utilities;
 
 public class ListElement {
-    private int id;
+    private final int id;
 
-    private String title;
-    private String subtext;
+    private final String title;
+    private final String subtext;
 
     public ListElement(int id, String title, String subtext) {
         this.id = id;

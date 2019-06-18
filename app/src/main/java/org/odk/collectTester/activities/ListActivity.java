@@ -115,7 +115,7 @@ public class ListActivity extends BaseActivity {
             }
         }));
 
-        if (getListFromCursor(getCursor()).size() == 0) {
+        if (getListFromCursor(getCursor()).isEmpty()) {
             findViewById(R.id.empty_view).setVisibility(View.VISIBLE);
             recyclerView.setVisibility(View.GONE);
         } else {
