@@ -40,7 +40,7 @@ import static org.odk.collectTester.utilities.Constants.VIEW_INSTANCE_SUBMISSION
 import static org.odk.collectTester.utilities.Constants.VIEW_SENT;
 import static org.odk.collectTester.utilities.Constants.VIEW_SENT_FORM_CODE;
 
-public class MainActivity extends AbstractActivity {
+public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

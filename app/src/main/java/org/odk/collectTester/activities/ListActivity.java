@@ -43,7 +43,7 @@ import static org.odk.collectTester.utilities.Constants.LIST_MODE_KEY;
 import static org.odk.collectTester.utilities.Constants.STATUS;
 import static org.odk.collectTester.utilities.Constants.STATUS_SUBMITTED;
 
-public class ListActivity extends AbstractActivity {
+public class ListActivity extends BaseActivity {
     private String mode;
 
     private RecyclerView recyclerView;
