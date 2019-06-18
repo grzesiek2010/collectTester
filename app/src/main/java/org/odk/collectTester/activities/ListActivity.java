@@ -117,11 +117,9 @@ public class ListActivity extends AbstractActivity {
 
         if (getCursor() == null || getCursor().getCount() == 0) {
             findViewById(R.id.empty_view).setVisibility(View.VISIBLE);
-            findViewById(R.id.ll_listActivity_instanceUploadLayout).setVisibility(View.GONE);
             recyclerView.setVisibility(View.GONE);
         } else {
             findViewById(R.id.empty_view).setVisibility(View.GONE);
-            findViewById(R.id.ll_listActivity_instanceUploadLayout).setVisibility(View.GONE);
             recyclerView.setVisibility(View.VISIBLE);
         }
     }
