@@ -25,7 +25,7 @@ import org.odk.collectTester.R;
 
 import static org.odk.collectTester.utilities.Constants.COLLECT_PACKAGE_NAME;
 
-public class AbstractActivity extends AppCompatActivity {
+public abstract class AbstractActivity extends AppCompatActivity {
 
     public void startActivityIfAvailable(Intent i) {
         if (!isCollectAppInstalled()) {
