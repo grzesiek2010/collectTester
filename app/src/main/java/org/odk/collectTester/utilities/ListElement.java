@@ -19,24 +19,24 @@ package org.odk.collectTester.utilities;
 public class ListElement {
     private int id;
 
-    private String text1;
-    private String text2;
+    private String title;
+    private String subtext;
 
-    public ListElement(int id, String text1, String text2) {
+    public ListElement(int id, String title, String subtext) {
         this.id = id;
-        this.text1 = text1;
-        this.text2 = text2;
+        this.title = title;
+        this.subtext = subtext;
     }
 
     public int getId() {
         return id;
     }
 
-    public String getText1() {
-        return text1;
+    public String getTitle() {
+        return title;
     }
 
-    public String getText2() {
-        return text2;
+    public String getSubtext() {
+        return subtext;
     }
 }
