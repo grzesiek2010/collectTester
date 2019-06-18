@@ -23,13 +23,13 @@ limitations under the License.
     android:background="?android:attr/selectableItemBackground" >
 
     <TextView
-        android:id="@+id/text1"
+        android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
-        android:id="@+id/text2"
+        android:id="@+id/subtext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall" />
