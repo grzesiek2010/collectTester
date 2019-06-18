@@ -84,6 +84,14 @@ public class MainActivity extends AbstractActivity {
         startActivity(i);
     }
 
+    public void startInstancesSubmitActivity(View view) {
+        startActivity(new Intent(this, InstanceSubmitActivity.class));
+    }
+
+    public void startFormsDownloadActivity(View view) {
+        startActivity(new Intent(this, FormDownloadActivity.class));
+    }
+
     public void startFormChooserListInfo(View view) {
         showDialogInfo(null, FILL_BLANK_FORM_CODE);
     }
@@ -108,25 +116,17 @@ public class MainActivity extends AbstractActivity {
         showDialogInfo(getString(R.string.start_instances_list_info), null);
     }
 
-    public void startDownloadFormInfo(View view) {
-        showDialogInfo(null, DOWNLOAD_FORM_CODE);
+    public void startInstancesSubmissionInfo(View view) {
+        showDialogInfo(null, VIEW_INSTANCE_SUBMISSION_CODE);
     }
 
-    public void downloadForm(View view) {
-        startActivity(new Intent(this, FormDownloadActivity.class));
+    public void startFormsDownloadInfo(View view) {
+        showDialogInfo(null, DOWNLOAD_FORM_CODE);
     }
 
     private void showDialogInfo(String message, String codeFragment) {
         SimpleDialog simpleDialog = SimpleDialog.newInstance(message, codeFragment);
         simpleDialog.show(getSupportFragmentManager(), SimpleDialog.INFO_DIALOG_TAG);
-    }
-
-    public void startInstancesSubmissionInfo(View view) {
-        showDialogInfo(null, VIEW_INSTANCE_SUBMISSION_CODE);
-    }
-
-    public void submitInstance(View view) {
-        startActivity(new Intent(this, InstanceSubmitActivity.class));
     }
 
     @Override
@@ -138,10 +138,8 @@ public class MainActivity extends AbstractActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch(item.getItemId()) {
-            case R.id.settings:
-                startActivity(new Intent(this, SettingsActivity.class));
+        if (item.getItemId() == R.id.settings) {
+            startActivity(new Intent(this, SettingsActivity.class));
         }
 
         return super.onOptionsItemSelected(item);
