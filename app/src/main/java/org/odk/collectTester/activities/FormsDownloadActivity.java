@@ -4,17 +4,13 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.preference.PreferenceManager;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import org.odk.collectTester.R;
 import org.odk.collectTester.utilities.Constants;
@@ -24,16 +20,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class FormsDownloadActivity extends AppCompatActivity {
+import static org.odk.collectTester.utilities.Constants.BundleKeys.PASSWORD;
+import static org.odk.collectTester.utilities.Constants.BundleKeys.URL;
+import static org.odk.collectTester.utilities.Constants.BundleKeys.USERNAME;
+
+public class FormsDownloadActivity extends BaseActivity {
 
     private enum FormDownloadStatus {
         DOWNLOAD_REQUESTED, DOWNLOAD_REQUEST_RECEIVED, DOWNLOAD_STARTED, DOWNLOAD_FAILED, DOWNLOAD_SUCCEEDED;
     }
 
     private TextView statusTv;
-    private EditText formIdEdtv;
     private BroadcastReceiver broadcastReceiver;
-    private String formIds;
     private Switch backgroundDownloadSwitch;
 
     private HashMap<String, FormDownloadDetails> downloadQueue = new HashMap<>();
@@ -42,7 +40,6 @@ public class FormsDownloadActivity extends AppCompatActivity {
 
     public static final int PROGRESS_REQUEST_RECEIVED = 1;
     public static final int PROGRESS_REQUEST_BEING_PROCESSED = 2;
-    public static final int PROGRESS_REQUEST_SATISFIED = 3;
 
     private static final String DOWNLOAD_TEXT_KEY = "download_text";
     private static final String DOWNLOAD_QUEUE_KEY = "download_queue";
@@ -60,9 +57,8 @@ public class FormsDownloadActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_download);
 
-        formIdEdtv = (EditText) findViewById(R.id.form_id_edt);
-        statusTv = (TextView) findViewById(R.id.status_tv);
-        backgroundDownloadSwitch = (Switch) findViewById(R.id.switch_background_download);
+        statusTv = findViewById(R.id.status_tv);
+        backgroundDownloadSwitch = findViewById(R.id.switch_background_download);
 
         if (savedInstanceState != null) {
             statusTv.setText(savedInstanceState.getString(DOWNLOAD_TEXT_KEY));
@@ -147,15 +143,14 @@ public class FormsDownloadActivity extends AppCompatActivity {
         }
     }
 
-    public void downloadForm(View view) {
+    public void startFormsDownloadActivity(View view) {
         Intent intent = new Intent("org.odk.collect.android.FORM_DOWNLOAD");
 
-        intent.putExtra("URL", getValue("url", null));
-        intent.putExtra("USERNAME", getValue("username", null));
-        intent.putExtra("PASSWORD", getValue("password", null));
+        intent.putExtra(URL, getUrl());
+        intent.putExtra(USERNAME, getUserName());
+        intent.putExtra(PASSWORD, getPassword());
 
-        formIds = formIdEdtv.getText().toString();
-        formIds = formIds.trim();
+        String formIds = getFormIdsString();
 
         String[] formIdArray = formIds.split(",");
 
@@ -179,7 +174,7 @@ public class FormsDownloadActivity extends AppCompatActivity {
                         registerReceiver(broadcastReceiver, new IntentFilter(Constants.FORM_DOWNLOAD_BROADCAST_ACTION));
                     }
 
-                    updateStatus("FORM " + ((formId == null) ? "NULL" : formId) + ": Download requested");
+                    updateStatus("FORM " + formId + ": Download requested");
                 }
             }
         } else {
@@ -199,7 +194,7 @@ public class FormsDownloadActivity extends AppCompatActivity {
                 }
             }
 
-            intent.putExtra(Constants.BundleKeys.FORM_IDS, formIdList.toArray(new String[formIdList.size()]));
+            intent.putExtra(Constants.BundleKeys.FORM_IDS, formIdList.toArray(new String[0]));
             intent.setType("vnd.android.cursor.dir/vnd.odk.form");
 
             startActivityForResult(intent, REQ_CODE);
@@ -207,30 +202,18 @@ public class FormsDownloadActivity extends AppCompatActivity {
 
     }
 
-    private String getValue(String key, String defValue) {
-        return PreferenceManager.getDefaultSharedPreferences(this)
-                .getString(key, defValue);
-    }
-
     private String getSuccessStatus(boolean success) {
         return success ? "Succeeded" : "Failed";
     }
 
     public static class FormDownloadDetails implements Serializable {
-        public FormDownloadStatus formDownloadStatus;
-        public String formId;
+        FormDownloadStatus formDownloadStatus;
+        String formId;
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-
-        /*
-         Save the following:
-            - text on the download status
-            - download queue(Keeps track of all state)
-            - downloadInBackground flag
-          */
 
         outState.putString(DOWNLOAD_TEXT_KEY, statusTv.getText().toString());
         outState.putSerializable(DOWNLOAD_QUEUE_KEY, downloadQueue);
@@ -241,7 +224,7 @@ public class FormsDownloadActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQ_CODE) {
             if (resultCode == RESULT_OK) {
-                String status = "FOREGROUND REQUEST DOWNLOAD RESULTS: \n";
+                StringBuilder status = new StringBuilder("FOREGROUND REQUEST DOWNLOAD RESULTS: \n");
                 boolean successful = data.getBooleanExtra(SUCCESS_KEY, false);
 
                 String message = data.getStringExtra(MESSAGE);
@@ -250,17 +233,28 @@ public class FormsDownloadActivity extends AppCompatActivity {
                 for (String formId: downloadQueue.keySet()) {
                     Boolean result = resultFormIds.remove(formId);
                     if (result != null) {
-                        downloadQueue.remove(formId);
-                        status += "FORM ID: " + formId + " SUCESSFULL: " + getSuccessStatus(result) + "\n";
+                        status.append("FORM ID: ")
+                                .append(formId)
+                                .append(" SUCESSFULL: ")
+                                .append(getSuccessStatus(result))
+                                .append("\n");
                     }
                 }
 
-                status += "\nSUCCESSFUL: " + getSuccessStatus(successful) + "\nMESSAGE: " + message;
+                status
+                        .append("\nSUCCESSFUL: ")
+                        .append(getSuccessStatus(successful))
+                        .append("\nMESSAGE: ")
+                        .append(message);
 
-                updateStatus(status);
+                updateStatus(status.toString());
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
+    }
+
+    private String getFormIdsString() {
+        return ((TextView) findViewById(R.id.form_id_edt)).getText().toString().trim();
     }
 }

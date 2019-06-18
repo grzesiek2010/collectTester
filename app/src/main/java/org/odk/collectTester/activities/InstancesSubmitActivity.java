@@ -2,7 +2,6 @@ package org.odk.collectTester.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
@@ -82,23 +81,5 @@ public class InstancesSubmitActivity extends BaseActivity {
         }
 
         startActivity(intent);
-    }
-
-    private String getPrefValue(String key) {
-        return PreferenceManager
-                .getDefaultSharedPreferences(this)
-                .getString(key, null);
-    }
-
-    private String getUrl() {
-        return getPrefValue("url");
-    }
-
-    private String getUserName() {
-        return getPrefValue("username");
-    }
-
-    private String getPassword() {
-        return getPrefValue("password");
     }
 }
