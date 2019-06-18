@@ -19,6 +19,8 @@ package org.odk.collectTester.activities;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.preference.PreferenceManager;
 import android.widget.Toast;
 
 import org.odk.collectTester.R;
@@ -54,5 +56,22 @@ public abstract class BaseActivity extends AppCompatActivity {
         } catch (PackageManager.NameNotFoundException e) {
             return false;
         }
+    }
+
+    public String getPrefValue(String key) {
+        return PreferenceManager.getDefaultSharedPreferences(this)
+                .getString(key, null);
+    }
+
+    public String getUrl() {
+        return getPrefValue("url");
+    }
+
+    public String getUserName() {
+        return getPrefValue("username");
+    }
+
+    public String getPassword() {
+        return getPrefValue("password");
     }
 }
