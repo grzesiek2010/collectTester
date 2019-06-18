@@ -33,6 +33,7 @@ limitations under the License.
         <activity
             android:name=".activities.SettingsActivity"
             android:label="@string/title_activity_settings" />
+        <activity android:name=".activities.InstanceSubmitActivity" />
         <activity android:name=".activities.FormDownloadActivity" />
     </application>
 </manifest>

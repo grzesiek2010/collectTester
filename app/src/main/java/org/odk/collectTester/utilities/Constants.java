@@ -21,7 +21,6 @@ public class Constants {
 
     public static final String FORMS = "forms";
     public static final String INSTANCES = "instances";
-    public static final String INSTANCE_SUBMISSION = "instance_submission";
 
     public static final String FORM_MODE = "formMode";
     public static final String VIEW_SENT = "viewSent";
