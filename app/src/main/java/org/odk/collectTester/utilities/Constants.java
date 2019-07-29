@@ -37,11 +37,12 @@ public class Constants {
     public static final String INSTANCES_URI = "content://org.odk.collect.android.provider.odk.instances/instances";
 
     public static final String DISPLAY_NAME = "displayName";
-    public static final String DISPLAY_SUBTEXT = "displaySubtext";
+    public static final String DATE = "date";
   
     public static final String STATUS = "status";
     public static final String STATUS_SUBMITTED = "submitted";
     public static final String STATUS_COMPLETE = "complete";
+    public static final String STATUS_INCOMPLETE = "incomplete";
     public static final String STATUS_SUBMISSION_FAILED = "submissionFailed";
 
     public static final String COLLECT_PACKAGE_NAME = "org.odk.collect.android";
