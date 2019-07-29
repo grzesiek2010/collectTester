@@ -16,6 +16,7 @@
 
 package org.odk.collectTester.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -31,16 +32,22 @@ import org.odk.collectTester.utilities.ListElement;
 import org.odk.collectTester.R;
 import org.odk.collectTester.adapters.ListAdapter;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
+import static org.odk.collectTester.utilities.Constants.DATE;
 import static org.odk.collectTester.utilities.Constants.DISPLAY_NAME;
-import static org.odk.collectTester.utilities.Constants.DISPLAY_SUBTEXT;
 import static org.odk.collectTester.utilities.Constants.FORMS;
 import static org.odk.collectTester.utilities.Constants.FORMS_URI;
 import static org.odk.collectTester.utilities.Constants.INSTANCES_URI;
 import static org.odk.collectTester.utilities.Constants.LIST_MODE_KEY;
 import static org.odk.collectTester.utilities.Constants.STATUS;
+import static org.odk.collectTester.utilities.Constants.STATUS_COMPLETE;
+import static org.odk.collectTester.utilities.Constants.STATUS_INCOMPLETE;
+import static org.odk.collectTester.utilities.Constants.STATUS_SUBMISSION_FAILED;
 import static org.odk.collectTester.utilities.Constants.STATUS_SUBMITTED;
 
 public class ListActivity extends BaseActivity {
@@ -86,7 +93,8 @@ public class ListActivity extends BaseActivity {
                 while (cursor.moveToNext()) {
                     int id = cursor.getInt(cursor.getColumnIndex(BaseColumns._ID));
                     String text1 = cursor.getString(cursor.getColumnIndex(DISPLAY_NAME));
-                    String text2 = cursor.getString(cursor.getColumnIndex(DISPLAY_SUBTEXT));
+                    String status = mode.equals(FORMS) ? null : cursor.getString(getCursor().getColumnIndex(STATUS));
+                    String text2 = getSubtext(this, status, new Date(cursor.getLong(cursor.getColumnIndex(DATE))));
                     if (mode.equals(FORMS) || !STATUS_SUBMITTED.equals(cursor.getString(cursor.getColumnIndex(STATUS)))) {
                         listElements.add(new ListElement(id, text1, text2));
                     }
@@ -97,6 +105,33 @@ public class ListActivity extends BaseActivity {
         }
 
         return listElements;
+    }
+
+    public static String getSubtext(Context context, String state, Date date) {
+        try {
+            if (state == null) {
+                return new SimpleDateFormat(context.getString(R.string.added_on_date_at_time),
+                        Locale.getDefault()).format(date);
+            } else if (STATUS_INCOMPLETE.equalsIgnoreCase(state)) {
+                return new SimpleDateFormat(context.getString(R.string.saved_on_date_at_time),
+                        Locale.getDefault()).format(date);
+            } else if (STATUS_COMPLETE.equalsIgnoreCase(state)) {
+                return new SimpleDateFormat(context.getString(R.string.finalized_on_date_at_time),
+                        Locale.getDefault()).format(date);
+            } else if (STATUS_SUBMITTED.equalsIgnoreCase(state)) {
+                return new SimpleDateFormat(context.getString(R.string.sent_on_date_at_time),
+                        Locale.getDefault()).format(date);
+            } else if (STATUS_SUBMISSION_FAILED.equalsIgnoreCase(state)) {
+                return new SimpleDateFormat(
+                        context.getString(R.string.sending_failed_on_date_at_time),
+                        Locale.getDefault()).format(date);
+            } else {
+                return new SimpleDateFormat(context.getString(R.string.added_on_date_at_time),
+                        Locale.getDefault()).format(date);
+            }
+        } catch (IllegalArgumentException e) {
+            return "";
+        }
     }
 
     @Override
