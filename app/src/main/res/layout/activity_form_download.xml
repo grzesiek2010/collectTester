@@ -28,14 +28,6 @@
         android:layout_width="match_parent"
         android:layout_height="10dp"/>
 
-    <Switch
-        android:id="@+id/switch_background_download"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:checked="false"
-        android:visibility="gone"
-        android:text="@string/background_download"/>
-
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
