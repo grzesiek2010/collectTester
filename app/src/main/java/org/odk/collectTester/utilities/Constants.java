@@ -35,6 +35,7 @@ public class Constants {
 
     public static final String FORMS_URI = "content://org.odk.collect.android.provider.odk.forms/forms";
     public static final String INSTANCES_URI = "content://org.odk.collect.android.provider.odk.instances/instances";
+    public static final String PROJECTS_URI = "content://org.odk.collect.android.provider.odk.projects/";
 
     public static final String DISPLAY_NAME = "displayName";
     public static final String DATE = "date";
@@ -44,6 +45,9 @@ public class Constants {
     public static final String STATUS_COMPLETE = "complete";
     public static final String STATUS_INCOMPLETE = "incomplete";
     public static final String STATUS_SUBMISSION_FAILED = "submissionFailed";
+
+    public static final String PROJECT_UUID = "uuid";
+    public static final String PROJECT_NAME = "name";
 
     public static final String COLLECT_PACKAGE_NAME = "org.odk.collect.android";
 

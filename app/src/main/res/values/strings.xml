@@ -23,6 +23,7 @@ limitations under the License.
     <string name="instances_list">Instances List</string>
     <string name="start_form_list_info">Get a list of forms from Collect. Specific forms can be launched using their ID.</string>
     <string name="start_instances_list_info">Get a list of instances from Collect. Specific instances can be launched using their ID.</string>
+    <string name="start_projects_list_info">Get a list of projects from Collect.</string>
     <string name="no_data_available">No data available</string>
     <string name="collect_app_not_installed">The Collect app is not installed!</string>
     <string name="title_activity_settings">Settings</string>
@@ -31,6 +32,7 @@ limitations under the License.
     <string name="username">Username</string>
     <string name="submit_instance">Submit Instance</string>
     <string name="download_form">Download Form</string>
+    <string name="projects_list">Projects List</string>
     <string name="download_mode_change_during_bg_downloads_is_restricted">You cannot change the download mode while there are ongoing downloads in the background</string>
     <string name="submit">SUBMIT</string>
     <string name="submit_forms_text_box_hint">Enter the instance ids of forms to upload separated by a comma eg. 1,5,7</string>

@@ -92,6 +92,10 @@ public class MainActivity extends BaseActivity {
         startActivity(new Intent(this, FormsDownloadActivity.class));
     }
 
+    public void startProjectsList(View view) {
+        startActivity(new Intent(this, ProjectsListActivity.class));
+    }
+
     public void startFormChooserListInfo(View view) {
         showDialogInfo(null, FILL_BLANK_FORM_CODE);
     }
@@ -122,6 +126,10 @@ public class MainActivity extends BaseActivity {
 
     public void startFormsDownloadInfo(View view) {
         showDialogInfo(null, DOWNLOAD_FORM_CODE);
+    }
+
+    public void showProjectsListInfo(View view) {
+        showDialogInfo(getString(R.string.start_projects_list_info), null);
     }
 
     private void showDialogInfo(String message, String codeFragment) {
