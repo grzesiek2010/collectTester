@@ -47,6 +47,7 @@ public class Constants {
 
     public static final String COLLECT_PACKAGE_NAME = "org.odk.collect.android";
 
+    public static final String START_ODK_COLLECT = "file:///android_asset/start_odk_collect.html";
     public static final String FILL_BLANK_FORM_CODE = "file:///android_asset/fill_blank_form_code.html";
     public static final String EDIT_SAVED_FORM_CODE = "file:///android_asset/edit_saved_form_code.html";
     public static final String SEND_FINALIZED_FORM_CODE = "file:///android_asset/send_finalize_form_code.html";

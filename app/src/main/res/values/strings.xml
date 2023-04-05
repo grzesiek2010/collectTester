@@ -15,6 +15,7 @@ limitations under the License.
 <resources>
     <string name="activity_not_found">Activity not found</string>
     <string name="ok">OK</string>
+    <string name="start_odk_collect">Start ODK Collect</string>
     <string name="fill_blank_form">Fill Blank Form</string>
     <string name="edit_saved_form">Edit Saved Form</string>
     <string name="send_finalized_form">Send Finalized Form</string>
