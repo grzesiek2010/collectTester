@@ -29,6 +29,7 @@ import static org.odk.collectTester.utilities.Constants.COLLECT_PACKAGE_NAME;
 import static org.odk.collectTester.utilities.Constants.DOWNLOAD_FORM_CODE;
 import static org.odk.collectTester.utilities.Constants.EDIT_SAVED_FORM_CODE;
 import static org.odk.collectTester.utilities.Constants.FILL_BLANK_FORM_CODE;
+import static org.odk.collectTester.utilities.Constants.FILL_FORM_CODE;
 import static org.odk.collectTester.utilities.Constants.FORMS;
 import static org.odk.collectTester.utilities.Constants.FORMS_CHOOSER_INTENT_TYPE;
 import static org.odk.collectTester.utilities.Constants.FORM_MODE;
@@ -99,6 +100,10 @@ public class MainActivity extends BaseActivity {
         startActivity(new Intent(this, FormsDownloadActivity.class));
     }
 
+    public void startFillFormActivity(View view) {
+        startActivity(new Intent(this, FillFormActivity.class));
+    }
+
     public void startODKCollectInfo(View view) {
         showDialogInfo(null, START_ODK_COLLECT);
     }
@@ -133,6 +138,10 @@ public class MainActivity extends BaseActivity {
 
     public void startFormsDownloadInfo(View view) {
         showDialogInfo(null, DOWNLOAD_FORM_CODE);
+    }
+
+    public void startFillFormInfo(View view) {
+        showDialogInfo(null, FILL_FORM_CODE);
     }
 
     private void showDialogInfo(String message, String codeFragment) {

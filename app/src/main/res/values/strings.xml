@@ -32,6 +32,8 @@ limitations under the License.
     <string name="username">Username</string>
     <string name="submit_instance">Submit Instance</string>
     <string name="download_form">Download Form</string>
+    <string name="fill_form">Fill Form</string>
+    <string name="fill_form_hint">Enter the form id (not the form id specified in the form but the id in the database).</string>
     <string name="download_mode_change_during_bg_downloads_is_restricted">You cannot change the download mode while there are ongoing downloads in the background</string>
     <string name="submit">SUBMIT</string>
     <string name="submit_forms_text_box_hint">Enter the instance ids of forms to upload separated by a comma eg. 1,5,7</string>
