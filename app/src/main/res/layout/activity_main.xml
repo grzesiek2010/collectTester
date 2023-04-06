@@ -32,6 +32,26 @@ limitations under the License.
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:src="@android:drawable/ic_dialog_info"
+                android:onClick="startODKCollectInfo" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="@string/start_odk_collect"
+                android:onClick="startODKCollect" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@android:drawable/ic_dialog_info"
                 android:onClick="startFormChooserListInfo" />
 
             <Button
@@ -42,10 +62,6 @@ limitations under the License.
                 android:onClick="startFormChooserList" />
 
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="10dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -67,10 +83,6 @@ limitations under the License.
 
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="10dp"/>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -90,10 +102,6 @@ limitations under the License.
                 android:onClick="startInstanceUploaderList" />
 
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="10dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -115,11 +123,8 @@ limitations under the License.
 
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="10dp"/>
-
         <LinearLayout
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -138,10 +143,6 @@ limitations under the License.
                 android:onClick="startFormList" />
 
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="10dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -163,11 +164,8 @@ limitations under the License.
 
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="10dp"/>
-
         <LinearLayout
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -187,10 +185,6 @@ limitations under the License.
 
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="10dp"/>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -208,6 +202,26 @@ limitations under the License.
                 android:padding="20dp"
                 android:text="@string/download_form"
                 android:onClick="startFormsDownloadActivity" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@android:drawable/ic_dialog_info"
+                android:onClick="startFillFormInfo" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="@string/fill_form"
+                android:onClick="startFillFormActivity" />
 
         </LinearLayout>
     </LinearLayout>
