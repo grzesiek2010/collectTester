@@ -1,0 +1,18 @@
+<html>
+<head>
+    <style>
+            body {
+            font-family: sans-serif;
+            }
+            pre {
+            padding: 1em;
+            }
+    </style>
+</head>
+<body>
+<pre>
+Intent i = getPackageManager().getLaunchIntentForPackage(COLLECT_PACKAGE_NAME);
+startActivityIfAvailable(i);
+</pre>
+</body>
+</html>

@@ -95,9 +95,8 @@ public class ListActivity extends BaseActivity {
                     String text1 = cursor.getString(cursor.getColumnIndex(DISPLAY_NAME));
                     String status = mode.equals(FORMS) ? null : cursor.getString(getCursor().getColumnIndex(STATUS));
                     String text2 = getSubtext(this, status, new Date(cursor.getLong(cursor.getColumnIndex(DATE))));
-                    if (mode.equals(FORMS) || !STATUS_SUBMITTED.equals(cursor.getString(cursor.getColumnIndex(STATUS)))) {
-                        listElements.add(new ListElement(id, text1, text2));
-                    }
+
+                    listElements.add(new ListElement(id, text1, text2));
                 }
             } finally {
                 cursor.close();

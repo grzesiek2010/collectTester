@@ -7,8 +7,6 @@ You can open a specific form or lists of empty forms, saved forms, finalized for
 
 Thanks to that you can build your own app that interact with [ODK Collect](https://github.com/opendatakit/collect) through intents.
 
-![Alt Text](https://github.com/grzesiek2010/collectTester/blob/master/collectTester.gif)
-
 ## Calling ODK Collect from your app
 
 If you want to start ODK Collect's activity you need to:
