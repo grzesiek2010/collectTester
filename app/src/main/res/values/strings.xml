@@ -30,8 +30,8 @@ limitations under the License.
     <string name="settings">Settings</string>
     <string name="password">Password</string>
     <string name="username">Username</string>
-    <string name="submit_instance">Submit instance by id</string>
-    <string name="download_form">Download form by id</string>
+    <string name="submit_instance">Submit instances by id</string>
+    <string name="download_form">Download forms by id</string>
     <string name="fill_form">Fill form by id starting FormEntryActivity directly (should not work in the future)</string>
     <string name="fill_form_hint">Enter the form id (not the form id specified in the form but the id in the database).</string>
     <string name="download_mode_change_during_bg_downloads_is_restricted">You cannot change the download mode while there are ongoing downloads in the background</string>
