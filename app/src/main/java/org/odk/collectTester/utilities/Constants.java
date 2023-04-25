@@ -56,19 +56,12 @@ public class Constants {
     public static final String DOWNLOAD_FORM_CODE = "file:///android_asset/download_form_code.html";
     public static final String FILL_FORM_CODE = "file:///android_asset/fill_form_code.html";
 
-    public static final String FORM_DOWNLOAD_BROADCAST_ACTION = "org.odk.collect.FORM_DOWNLOAD.PROGRESS";
-
     public static class BundleKeys {
-        public static final String SUCCESS_KEY = "SUCCESSFUL";
-        public static final String ERROR_REASON = "ERROR_MSG";
-        public static final String FORM_ID = "FORM_ID";
         public static final String FORM_IDS = "FORM_IDS";
         public static final String INSTANCES = "instances";
         public static final String USERNAME = "USERNAME";
         public static final String PASSWORD = "PASSWORD";
         public static final String URL = "URL";
-        public static final String PROGRESS_STAGE = "PROGRESS_STAGE";
-        public static final String TRANSACTION_ID = "TRANSACTION_ID";
     }
 
     public static final String ODK_COLLECT_SUBMIT_INSTANCE_ACTION = "org.odk.collect.android.INSTANCE_UPLOAD";
