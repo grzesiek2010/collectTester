@@ -28,6 +28,8 @@ import org.odk.collectTester.fragments.SimpleDialog;
 import static org.odk.collectTester.utilities.Constants.COLLECT_PACKAGE_NAME;
 import static org.odk.collectTester.utilities.Constants.DOWNLOAD_FORM_CODE;
 import static org.odk.collectTester.utilities.Constants.EDIT_SAVED_FORM_CODE;
+import static org.odk.collectTester.utilities.Constants.FETCH_LIST_OF_FORMS_CODE;
+import static org.odk.collectTester.utilities.Constants.FETCH_LIST_OF_INSTANCES_CODE;
 import static org.odk.collectTester.utilities.Constants.FILL_BLANK_FORM_CODE;
 import static org.odk.collectTester.utilities.Constants.FORMS;
 import static org.odk.collectTester.utilities.Constants.FORMS_CHOOSER_INTENT_TYPE;
@@ -131,11 +133,11 @@ public class MainActivity extends BaseActivity {
     }
 
     public void startFormListInfo(View view) {
-        showDialogInfo(getString(R.string.start_form_list_info), null);
+        showDialogInfo(null, FETCH_LIST_OF_FORMS_CODE);
     }
 
     public void startInstancesListInfo(View view) {
-        showDialogInfo(getString(R.string.start_instances_list_info), null);
+        showDialogInfo(null, FETCH_LIST_OF_INSTANCES_CODE);
     }
 
     public void startInstancesSubmissionInfo(View view) {

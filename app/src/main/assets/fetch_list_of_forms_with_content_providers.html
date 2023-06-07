@@ -1,0 +1,22 @@
+<html>
+<head>
+    <style>
+                body {
+                font-family: sans-serif;
+                }
+                pre {
+                padding: 1em;
+                }
+        </style>
+</head>
+<body>
+<pre>
+Uri uri = Uri.parse("content://org.odk.collect.android.provider.odk.forms/forms");
+getContentResolver().query(uri, null, null, null, null);
+
+If there are multiple projects, the code above will fetch forms from the first one (the first created).
+If you want to use a different project, and you know its ID, you can define it in the URI:
+Uri uri = Uri.parse("content://org.odk.collect.android.provider.odk.forms/forms?projectId=3c990f90-72b2-4b73-b157-f7dfc15fc1db");
+</pre>
+</body>
+</html>
