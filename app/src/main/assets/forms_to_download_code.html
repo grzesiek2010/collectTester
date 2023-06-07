@@ -1,0 +1,19 @@
+<html>
+<head>
+    <style>
+            body {
+            font-family: sans-serif;
+            }
+            pre {
+            padding: 1em;
+            }
+    </style>
+</head>
+<body>
+<pre>
+Intent i = new Intent("org.odk.collect.android.FORM_DOWNLOAD");
+i.setType("vnd.android.cursor.dir/vnd.odk.form");
+startActivityIfAvailable(i);
+</pre>
+</body>
+</html>

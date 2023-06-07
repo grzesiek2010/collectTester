@@ -31,6 +31,7 @@ import static org.odk.collectTester.utilities.Constants.EDIT_SAVED_FORM_CODE;
 import static org.odk.collectTester.utilities.Constants.FILL_BLANK_FORM_CODE;
 import static org.odk.collectTester.utilities.Constants.FORMS;
 import static org.odk.collectTester.utilities.Constants.FORMS_CHOOSER_INTENT_TYPE;
+import static org.odk.collectTester.utilities.Constants.FORMS_TO_DOWNLOAD_CODE;
 import static org.odk.collectTester.utilities.Constants.FORM_MODE;
 import static org.odk.collectTester.utilities.Constants.INSTANCES;
 import static org.odk.collectTester.utilities.Constants.INSTANCES_CHOOSER_INTENT_TYPE;
@@ -79,6 +80,12 @@ public class MainActivity extends BaseActivity {
         startActivityIfAvailable(i);
     }
 
+    public void startFormsToDownloadList(View view) {
+        Intent i = new Intent("org.odk.collect.android.FORM_DOWNLOAD");
+        i.setType("vnd.android.cursor.dir/vnd.odk.form");
+        startActivityIfAvailable(i);
+    }
+
     public void startFormList(View view) {
         Intent i = new Intent(this, ListActivity.class);
         i.putExtra(LIST_MODE_KEY, FORMS);
@@ -117,6 +124,10 @@ public class MainActivity extends BaseActivity {
 
     public void startSentFormListInfo(View view) {
         showDialogInfo(null, VIEW_SENT_FORM_CODE);
+    }
+
+    public void startFormsToDownloadListInfo(View view) {
+        showDialogInfo(null, FORMS_TO_DOWNLOAD_CODE);
     }
 
     public void startFormListInfo(View view) {

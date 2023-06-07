@@ -20,6 +20,7 @@ limitations under the License.
     <string name="edit_saved_form">Open list of drafts</string>
     <string name="send_finalized_form">Open list of forms to send</string>
     <string name="view_sent_form">Open list of sent forms</string>
+    <string name="forms_to_download">Open list of forms to download</string>
     <string name="form_list">Fetch blank forms with content provider</string>
     <string name="instances_list">Fetch saved forms with content provider</string>
     <string name="start_form_list_info">Get a list of forms from Collect. Specific forms can be launched using their ID.</string>
