@@ -54,7 +54,6 @@ public class Constants {
     public static final String VIEW_SENT_FORM_CODE = "file:///android_asset/view_sent_form_code.html";
     public static final String VIEW_INSTANCE_SUBMISSION_CODE = "file:///android_asset/view_submit_instance_code.html";
     public static final String DOWNLOAD_FORM_CODE = "file:///android_asset/download_form_code.html";
-    public static final String FILL_FORM_CODE = "file:///android_asset/fill_form_code.html";
 
     public static class BundleKeys {
         public static final String FORM_IDS = "FORM_IDS";
