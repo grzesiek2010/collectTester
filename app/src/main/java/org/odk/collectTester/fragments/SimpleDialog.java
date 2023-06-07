@@ -63,7 +63,7 @@ public class SimpleDialog extends DialogFragment {
             webView.loadUrl(getArguments().getString(CODE_FRAGMENT));
             webView.getSettings().setLoadWithOverviewMode(true);
             webView.getSettings().setUseWideViewPort(true);
-            webView.getSettings().setMinimumFontSize(60);
+            webView.getSettings().setTextZoom(400);
 
             alertDialog.setView(webView);
         } else {
