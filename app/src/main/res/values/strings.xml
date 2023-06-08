@@ -23,8 +23,6 @@ limitations under the License.
     <string name="forms_to_download">Open list of forms to download</string>
     <string name="form_list">Fetch blank forms with content provider</string>
     <string name="instances_list">Fetch saved forms with content provider</string>
-    <string name="start_form_list_info">Get a list of forms from Collect. Specific forms can be launched using their ID.</string>
-    <string name="start_instances_list_info">Get a list of instances from Collect. Specific instances can be launched using their ID.</string>
     <string name="no_data_available">No data available</string>
     <string name="collect_app_not_installed">The Collect app is not installed!</string>
     <string name="title_activity_settings">Settings</string>
